@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import Paho from "paho-mqtt";
 import * as Location from "expo-location";
+import {MQTT_BROKER, MQTT_USERNAME, MQTT_PASSWORD} from "@env";
 
 const CLIENT_ID = "Infinix";
-const client = new Paho.Client("p1a944b2.emqx.cloud", Number(8083), CLIENT_ID);
-
-const mqttUsername = "raka";
-const mqttPassword = "ddi123";
+const client = new Paho.Client(MQTT_BROKER, Number(8083), CLIENT_ID);
 
 export default function App() {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
-
-  function onMessage(message) {
-    if (message.destinationName === "mqtt-tes") {
-      // Handle MQTT messages if needed
-    }
-  }
 
   const getLocation = async () => {
     try {
@@ -52,13 +44,12 @@ export default function App() {
       onSuccess: () => {
         console.log("Connected to MQTT!");
         client.subscribe("geo");
-        client.onMessageArrived = onMessage;
       },
       onFailure: () => {
         console.log("Failed to connect to MQTT!");
       },
-      userName: mqttUsername,
-      password: mqttPassword,
+      userName: MQTT_USERNAME,
+      password: MQTT_PASSWORD,
     });
 
     // Request location initially
@@ -67,7 +58,7 @@ export default function App() {
     // Set up interval to update location every 1 second
     const locationUpdateInterval = setInterval(() => {
       getLocation();
-    }, 0);
+    }, 1000);
 
     // Clean up MQTT subscription and interval when the component unmounts
     return () => {

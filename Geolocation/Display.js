@@ -1,23 +1,16 @@
 // LocationDisplay.js
-import React from 'react';
-import { Text, View, Button, StyleSheet } from 'react-native';
-import { useLocation } from './LocationProvider';
+import React, { useContext } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { LocationContext } from "./Provider";
 
 export default function LocationDisplay() {
-  const { location, errorMsg, updateLocation } = useLocation();
+  const { latitude, longitude, errorMsg } = useContext(LocationContext);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>Location:</Text>
-      {errorMsg ? <Text>{errorMsg}</Text> : null}
-      {location ? (
-        <Text>
-          Latitude: {location.coords.latitude}, Longitude: {location.coords.longitude}
-        </Text>
-      ) : (
-        <Text>Waiting for location...</Text>
-      )}
-      <Button title="Update Location" onPress={updateLocation} />
+      <Text>Latitude: {latitude}</Text>
+      <Text>Longitude: {longitude}</Text>
+      {errorMsg && <Text>{errorMsg}</Text>}
     </View>
   );
 }
@@ -25,11 +18,8 @@ export default function LocationDisplay() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  paragraph: {
-    fontSize: 18,
-    marginBottom: 10,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
