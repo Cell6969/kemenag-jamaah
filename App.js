@@ -27,13 +27,17 @@ export default function App() {
         setErrorMsg('Permission to access location was denied');
         return;
       }
-
-      const location = await Location.getCurrentPositionAsync({});
+  
+      const location = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.BestForNavigation, // Set the desired accuracy
+        maximumAge: 0, // Set maximumAge to 0 to clear the cache
+      });
+  
       setLatitude(location.coords.latitude);
       setLongitude(location.coords.longitude);
-
+  
       console.log(location.coords.latitude);
-      console.log(location.coords.longitude)
+      console.log(location.coords.longitude);
       // Send location to MQTT broker
       sendLocation(location.coords.latitude, location.coords.longitude);
     } catch (error) {
@@ -41,6 +45,7 @@ export default function App() {
       setErrorMsg('Error getting location: ' + error.message);
     }
   };
+  
 
   useEffect(() => {
     // Connect to MQTT broker
