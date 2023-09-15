@@ -7,7 +7,7 @@ export const handleLoginPress = async (emailOrUsername, password, navigation) =>
       await new Promise((resolve, reject) => {
         // Simulated delay for demonstration
         setTimeout(() => {
-          if (emailOrUsername.trim() && password.trim()) {
+          if (emailOrUsername === 'Gusti' && password ==='123') {
             // Successfully logged in
             resolve();
           } else {

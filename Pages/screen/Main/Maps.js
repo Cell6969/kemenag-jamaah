@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Button, Text } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { GetLocation } from "../../../Geolocation/getLocation";
-import { useNavigation } from "@react-navigation/native";
 
-const Maps = () => {
-  const navigation = useNavigation(); // Access navigation from the context
+
+
+const Maps = ({route, navigation, emailOrUsername}) => {
   const [userCoordinate, setUserCoordinate] = useState({
     latitude: 0,
     longitude: 0,
@@ -53,7 +53,7 @@ const Maps = () => {
       >
         <Marker
           coordinate={userCoordinate}
-          title="User's Location"
+          title={emailOrUsername}
           description="This is where the user is."
         />
       </MapView>

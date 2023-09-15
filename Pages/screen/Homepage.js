@@ -17,15 +17,13 @@ import logo from "../../assets/peruri-logo.png";
 
 const Drawer = createDrawerNavigator();
 
-const HomePage = () => {
-  const route = useRoute(); // Access the route object
-
-  const { emailOrUsername } = route.params;
-
+const HomePage = ({ route, navigation }) => {
+  // console.log(route.params)
   return (
     <>
       <StatusBar style="light" />
       <Drawer.Navigator
+        initialRouteName="Maps"
         drawerContent={(props) => {
           return (
             <SafeAreaView>
@@ -73,8 +71,12 @@ const HomePage = () => {
               <MaterialIcons name="map" size={20} color="black" />
             ),
           }}
-          component={Maps}
-        ></Drawer.Screen>
+          // component={Maps}
+        >
+          {(props) => (
+            <Maps {...props} emailOrUsername={route.params.emailOrUsername} />
+          )}
+        </Drawer.Screen>
         <Drawer.Screen
           name="Mekah"
           options={{
