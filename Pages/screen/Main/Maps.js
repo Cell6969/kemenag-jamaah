@@ -2,20 +2,27 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Button, Text } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { GetLocation } from "../../../Geolocation/getLocation";
+import MqttClient from "../../../Geolocation/mqttSetup";
 
-
-
-const Maps = ({route, navigation, emailOrUsername}) => {
+const Maps = ({ route, navigation, emailOrUsername }) => {
   const [userCoordinate, setUserCoordinate] = useState({
     latitude: 0,
     longitude: 0,
   });
 
+  const mqttclient = new MqttClient({ clientId: emailOrUsername });
+
+  const updateLocation = (latitude, longitude) => {
+    setUserCoordinate({ latitude, longitude });
+    mqttclient.sendLocation(latitude, longitude);
+  };
+
+  // if permission for getting location is rejected
   const fetchLocation = async () => {
     try {
       const coords = await GetLocation();
       if (coords) {
-        setUserCoordinate(coords);
+        updateLocation(coords.latitude, coords.longitude);
       } else {
         console.log("Permission Denied");
         // Navigate to the login page when permission is denied
@@ -27,16 +34,23 @@ const Maps = ({route, navigation, emailOrUsername}) => {
   };
 
   useEffect(() => {
+    // Connect MQtt
+    mqttclient.connect();
+
+    // FetchLocation
     fetchLocation();
 
+    // Create update fetch
     const locationInterval = setInterval(() => {
       fetchLocation();
     }, 4000); // Fetch location every 5 seconds
 
     return () => {
+      mqttclient.disconnect();
       clearInterval(locationInterval);
     };
   }, [navigation]); // Include navigation in the dependency array
+
   console.log(userCoordinate);
 
   return (
