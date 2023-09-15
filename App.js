@@ -1,100 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import Paho from "paho-mqtt";
-import * as Location from "expo-location";
-import {MQTT_BROKER, MQTT_USERNAME, MQTT_PASSWORD} from "@env";
+import React from "react";
+import {NavigationContainer} from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import LoginPage from "./Pages/screen/Loginpage";
+import RegisterPage from "./Pages/screen/Registerpage";
+import HomePage from "./Pages/screen/Homepage";
 
-const CLIENT_ID = "Infinix";
-const client = new Paho.Client(MQTT_BROKER, Number(8083), CLIENT_ID);
+const Stack = createStackNavigator();
 
 export default function App() {
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
-
-  const getLocation = async () => {
-    try {
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
-
-      const location = await Location.getCurrentPositionAsync({
-        accuracy: Location.Accuracy.BestForNavigation, // Set the desired accuracy
-        maximumAge: 0, // Set maximumAge to 0 to clear the cache
-      });
-
-      setLatitude(location.coords.latitude);
-      setLongitude(location.coords.longitude);
-
-      console.log(location.coords.latitude);
-      console.log(location.coords.longitude);
-      // Send location to MQTT broker
-      sendLocation(location.coords.latitude, location.coords.longitude);
-    } catch (error) {
-      console.error("Error getting location:", error);
-      setErrorMsg("Error getting location: " + error.message);
-    }
-  };
-
-  useEffect(() => {
-    // Connect to MQTT broker
-    client.connect({
-      onSuccess: () => {
-        console.log("Connected to MQTT!");
-        client.subscribe("geo");
-      },
-      onFailure: () => {
-        console.log("Failed to connect to MQTT!");
-      },
-      userName: MQTT_USERNAME,
-      password: MQTT_PASSWORD,
-    });
-
-    // Request location initially
-    getLocation();
-
-    // Set up interval to update location every 1 second
-    const locationUpdateInterval = setInterval(() => {
-      getLocation();
-    }, 1000);
-
-    // Clean up MQTT subscription and interval when the component unmounts
-    return () => {
-      client.unsubscribe("geo"); // Unsubscribe from the MQTT topic
-      client.disconnect(); // Disconnect from MQTT broker
-      clearInterval(locationUpdateInterval); // Clear the location update interval
-    };
-  }, []);
-
-  // Function to send location data through MQTT
-  function sendLocation(latitude, longitude) {
-    if (client.isConnected()) {
-      const locationMessage = new Paho.Message(
-        JSON.stringify({ CLIENT_ID, latitude, longitude })
-      );
-      locationMessage.destinationName = "geo"; // Change the destination topic as needed
-      client.send(locationMessage);
-    } else {
-      console.log("Not connected to the MQTT broker");
-    }
-  }
-
   return (
-    <View style={styles.container}>
-      <Text>Latitude: {latitude}</Text>
-      <Text>Longitude: {longitude}</Text>
-      {errorMsg && <Text>{errorMsg}</Text>}
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="Registration" component={RegisterPage} />
+        <Stack.Screen name="Home" component={HomePage} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+};
