@@ -1,24 +1,22 @@
 import React from "react";
+import { SafeAreaView, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { MaterialIcons } from "@expo/vector-icons";
-import { useRoute } from "@react-navigation/native"; // Import useRoute from React Navigation
 import {
   DrawerItemList,
   createDrawerNavigator,
 } from "@react-navigation/drawer";
-import About from "./Main/About";
-import DocumentPray from "./Main/Prayer";
-import Emergency from "./Main/Emergency";
-import Maps from "./Main/Maps";
-import MecaPage from "./Main/Meca";
-import MadinahPage from "./Main/Madinah";
-import { SafeAreaView, View, Image } from "react-native";
+import Maps from "../pages/Maps/Maps";
+import MecaPage from "../pages/Mecca/Mecca";
+import MadinahPage from "../pages/Madinah/Madinah";
+import Guide from "../pages/HajjGuide/Guide";
+import Emergency from "../pages/Emergency/Emergency";
+import About from "../pages/About";
 import logo from "../../assets/peruri-logo.png";
 
 const Drawer = createDrawerNavigator();
 
-const HomePage = ({ route, navigation }) => {
-  // console.log(route.params)
+const DrawerMenu = ({ route, navigation }) => {
   return (
     <>
       <StatusBar style="light" />
@@ -108,7 +106,7 @@ const HomePage = ({ route, navigation }) => {
               <MaterialIcons name="person" size={20} color="black" />
             ),
           }}
-          component={DocumentPray}
+          component={Guide}
         ></Drawer.Screen>
         <Drawer.Screen
           name="Emergency"
@@ -137,4 +135,4 @@ const HomePage = ({ route, navigation }) => {
   );
 };
 
-export default HomePage;
+export default DrawerMenu;

@@ -1,5 +1,3 @@
-// LoginScreen.js
-
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
@@ -11,12 +9,12 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import Styles from "./styles/Styles";
 import { Feather } from "@expo/vector-icons";
-import { handleLoginPress } from "../Components/authLogin";
-import logo from "../../assets/peruri-logo.png";
+import { StylesLoginRegisPage as Styles } from "../../theme/stylesLoginRegis";
+import { handleLoginPress } from "./authLogin";
+import logo from "../../../assets/peruri-logo.png";
 
-function LoginScreen({ navigation }) {
+const LoginScreen = ({ navigation }) => {
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
   const [emailOrUsername, setEmailOrUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -116,24 +114,6 @@ function LoginScreen({ navigation }) {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 export default LoginScreen;
-
-/*
-function LoginScreen({ navigation }) {
-  return (
-    <View>
-      <Text>Login Screen</Text>
-      <Button
-        title="Register"
-        onPress={() => navigation.navigate('Registration')}
-      />
-      <Button
-        title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
-      />
-    </View>
-  );
-
-*/

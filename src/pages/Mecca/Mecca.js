@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import MapView, { Marker, Polygon } from "react-native-maps";
-import { GetLocation } from "../../../Geolocation/getLocation";
 import { useNavigation } from "@react-navigation/native";
 
 const MeccaCityCoordinates = [

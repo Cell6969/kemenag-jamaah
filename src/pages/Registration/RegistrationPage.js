@@ -1,7 +1,5 @@
-// RegistrationScreen.js
-
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
+import { StatusBar } from "expo-status-bar";
 import {
   View,
   Text,
@@ -9,12 +7,11 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
-  TouchableHighlight,
 } from "react-native";
-import Styles from "./styles/Styles";
+import { StylesLoginRegisPage as Styles } from "../../theme/stylesLoginRegis";
 import { Feather, Entypo } from "@expo/vector-icons";
 
-function RegistrationScreen({ navigation }) {
+const RegistrationScreen = ({ navigation }) => {
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
   return (
     <SafeAreaView style={Styles.container}>
@@ -130,6 +127,6 @@ function RegistrationScreen({ navigation }) {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
-export default RegistrationScreen;
+export default RegistrationScreen

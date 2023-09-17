@@ -14,8 +14,18 @@ const Emergency = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.box}>
-          <Text style={styles.title}>Emergency</Text>
-          <Text style={styles.subtitle}>ini Emergency</Text>
+          <Text style={styles.title}>Perhatian</Text>
+          <Text style={styles.subtitle}>
+            Tombol Panic Button digunakan sebagai sarana penting dalam situasi
+            darurat ketika jamaah haji menghadapi kondisi-kondisi kritis seperti
+            sakit yang berat, tersesat, atau situasi darurat lainnya selama
+            perjalanan mereka. Dengan sekali tekan tombol ini, jamaah haji dapat
+            segera memicu respons darurat yang akan menghubungkan mereka dengan
+            pihak berwenang atau bantuan medis untuk memberikan pertolongan dan
+            bantuan secepat mungkin. Tombol Panic Button adalah alat yang
+            krusial untuk memastikan keselamatan dan kesejahteraan jamaah haji
+            dalam perjalanan mereka yang penuh tantangan ini.
+          </Text>
           <TouchableOpacity style={styles.button}>
             <View style={styles.inline}>
               <MaterialIcons name="warning" size={20} color="white" />
@@ -56,7 +66,8 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "500",
     color: "#929292",
-    marginBottom: 40,
+    marginBottom: 20,
+    textAlign:'justify'
   },
   button: {
     alignItems: "center",
@@ -74,11 +85,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
+    
   },
   inline: {
     flexDirection: "row", // Align icon and text horizontally
     alignItems: "center", // Center icon and text vertically
-  }
+  },
 });
 
 export default Emergency;

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, SafeAreaView, ScrollView, StyleSheet } from "react-native";
 
 
-const DocumentPray = () => {
+const Guide = () => {
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#f6f6f6'}}>
             <ScrollView contentContainerStyle={styles.container}>
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default DocumentPray;
+export default Guide;

@@ -18,7 +18,7 @@ export const handleLoginPress = async (emailOrUsername, password, navigation) =>
       });
   
       // Successfully logged in, navigate to the Home screen
-      navigation.navigate("Home", {emailOrUsername});
+      navigation.navigate("Drawer", {emailOrUsername});
     } catch (error) {
       // Handle login error (e.g., show error message)
       console.log(error);
