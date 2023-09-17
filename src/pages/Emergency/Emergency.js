@@ -14,7 +14,7 @@ const Emergency = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.box}>
-          <Text style={styles.title}>Perhatian</Text>
+          <Text style={styles.title}>Perhatian!</Text>
           <Text style={styles.subtitle}>
             Tombol Panic Button digunakan sebagai sarana penting dalam situasi
             darurat ketika jamaah haji menghadapi kondisi-kondisi kritis seperti
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "700",
-    color: "#929292",
-    marginBottom: 40,
+    color: "red",
+    marginBottom: 30,
   },
   subtitle: {
     fontSize: 15,
