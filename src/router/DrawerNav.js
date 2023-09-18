@@ -117,8 +117,11 @@ const DrawerMenu = ({ route, navigation }) => {
               <MaterialIcons name="warning" size={20} color="black" />
             ),
           }}
-          component={Emergency}
-        ></Drawer.Screen>
+        >
+          {(props) => (
+            <Emergency {...props} emailOrUsername={route.params.emailOrUsername} />
+          )}
+        </Drawer.Screen>
         {/* <Drawer.Screen
           name="About"
           component={About}

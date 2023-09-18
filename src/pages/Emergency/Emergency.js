@@ -7,9 +7,11 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
+import { HandlePanicPress } from "./HandlePanic"
+import ToastNotification from "../../components/ToastMessage";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Emergency = () => {
+const Emergency = ({route, navigation, emailOrUsername}) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -26,7 +28,7 @@ const Emergency = () => {
             krusial untuk memastikan keselamatan dan kesejahteraan jamaah haji
             dalam perjalanan mereka yang penuh tantangan ini.
           </Text>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={()=>HandlePanicPress(emailOrUsername)}>
             <View style={styles.inline}>
               <MaterialIcons name="warning" size={20} color="white" />
               <Text style={styles.text}> Panic</Text>
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   box: {
-    backgroundColor: "#fff", // Background color of the box
+    backgroundColor: "#3662AA", // Background color of the box
     borderRadius: 10, // Optional: Add border radius for rounded corners
     padding: 20, // Optional: Add padding to create space inside the box
     shadowColor: "#000", // Optional: Add shadow to the box
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 15,
     fontWeight: "500",
-    color: "#929292",
+    color: "white",
     marginBottom: 20,
     textAlign:'justify'
   },

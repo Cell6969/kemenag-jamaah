@@ -10,17 +10,15 @@ const Stack = createStackNavigator();
 
 export default function StackNav() {
   return (
-    <ToastProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Login"
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Registration" component={RegistrationScreen} />
-          <Stack.Screen name="Drawer" component={DrawerMenu} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </ToastProvider>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Registration" component={RegistrationScreen} />
+        <Stack.Screen name="Drawer" component={DrawerMenu} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
