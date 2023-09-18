@@ -4,6 +4,8 @@ import MapView, { Marker } from "react-native-maps";
 import { GetLocation } from "../../utils/getLocation";
 import MqttClient from "../../config/setupMqtt";
 
+
+
 const Maps = ({ route, navigation, emailOrUsername }) => {
     const [userCoordinate, setUserCoordinate] = useState({
       latitude: 0,
