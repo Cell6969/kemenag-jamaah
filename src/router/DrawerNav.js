@@ -119,7 +119,7 @@ const DrawerMenu = ({ route, navigation }) => {
           }}
           component={Emergency}
         ></Drawer.Screen>
-        <Drawer.Screen
+        {/* <Drawer.Screen
           name="About"
           component={About}
           options={{
@@ -129,7 +129,7 @@ const DrawerMenu = ({ route, navigation }) => {
               <MaterialIcons name="info" size={20} color="black" />
             ),
           }}
-        ></Drawer.Screen>
+        ></Drawer.Screen> */}
       </Drawer.Navigator>
     </>
   );

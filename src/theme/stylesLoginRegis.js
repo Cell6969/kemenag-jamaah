@@ -109,5 +109,10 @@ export const StylesLoginRegisPage = StyleSheet.create({
       color: "#3662AA",
       fontWeight: "500",
     },
+    activityIndicatorContainer: {
+      position: "absolute",
+      alignSelf:'center',
+      bottom: '-5%'
+    },
   });
 

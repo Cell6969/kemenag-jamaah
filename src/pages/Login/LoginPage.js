@@ -8,16 +8,55 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  ActivityIndicator,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import ToastNotification from "../../components/ToastMessage";
 import { StylesLoginRegisPage as Styles } from "../../theme/stylesLoginRegis";
 import { handleLoginPress } from "./authLogin";
 import logo from "../../../assets/peruri-logo.png";
+
 
 const LoginScreen = ({ navigation }) => {
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
   const [emailOrUsername, setEmailOrUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [loginSuccess, setLoginSuccess] = useState(false);
+
+  const handleLogin = async () => {
+    try {
+      setLoading(true);
+      await handleLoginPress(
+        emailOrUsername,
+        password,
+        navigation,
+        () => {
+          setLoading(false);
+          setLoginSuccess(true);
+          setShowToast(true);
+          setTimeout(() => {
+            setShowToast(false);
+            navigation.navigate("Drawer", { emailOrUsername });
+          }, 1000); // Hide the toast after 3 seconds
+        },
+        (error) => {
+          setLoading(false);
+          setLoginSuccess(false);
+          setShowToast(true);
+          setTimeout(() => {
+            setShowToast(false);
+          }, 1500);
+          console.log(error);
+        }
+      );
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar style="auto" />
@@ -39,6 +78,9 @@ const LoginScreen = ({ navigation }) => {
         />
         <View style={Styles.content}>
           <Text style={Styles.title}>Masuk</Text>
+          {showToast && (
+            <ToastNotification type={loginSuccess ? "success" : "danger"} />
+          )}
           <View style={Styles.inputContainer}>
             <View style={Styles.icon}>
               <Feather name="user-check" size={22} color="#7C808D" />
@@ -81,12 +123,17 @@ const LoginScreen = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={Styles.loginButton}
-            onPress={() =>
-              handleLoginPress(emailOrUsername, password, navigation)
-            }
+            onPress={handleLogin}
+            disabled={loading}
           >
             <Text style={Styles.loginButtonText}>Masuk</Text>
           </TouchableOpacity>
+          {loading && (
+            <View style={Styles.activityIndicatorContainer}>
+              <ActivityIndicator size="large" color="blue" />
+            </View>
+          )}
+
           <View style={Styles.orContainer}>
             <View style={Styles.orLine} />
             <Text style={Styles.orText}>ATAU</Text>

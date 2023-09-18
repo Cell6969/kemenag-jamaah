@@ -15,7 +15,6 @@ const About = () => {
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.box}>
-          <Text style={styles.title}>Perhatian</Text>
           <Text style={styles.subtitle}>
             Tombol Panic Button digunakan sebagai sarana penting dalam situasi
             darurat ketika jamaah haji menghadapi kondisi-kondisi kritis seperti
@@ -27,12 +26,6 @@ const About = () => {
             krusial untuk memastikan keselamatan dan kesejahteraan jamaah haji
             dalam perjalanan mereka yang penuh tantangan ini.
           </Text>
-          <TouchableOpacity style={styles.button}>
-            <View style={styles.inline}>
-              <MaterialIcons name="warning" size={20} color="white" />
-              <Text style={styles.text}> Panic</Text>
-            </View>
-          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>

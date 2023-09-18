@@ -7,12 +7,42 @@ import {
   ScrollView,
   TextInput,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import { StylesLoginRegisPage as Styles } from "../../theme/stylesLoginRegis";
 import { Feather, Entypo } from "@expo/vector-icons";
+import { useFormInput } from "../../hooks/FormInput";
+import { handleRegisPress } from "./authRegis";
 
 const RegistrationScreen = ({ navigation }) => {
   const [passwordIsVisible, setPasswordIsVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  // initiate value
+  const fullnameInput = useFormInput("");
+  const usernameInput = useFormInput("");
+  const noIdInput = useFormInput("");
+  const passwordInput = useFormInput("");
+  const confirmPasswordInput = useFormInput("");
+
+  // Handle Regist and Animation
+  const handleRegis = async () => {
+    try {
+      setLoading(true);
+      await handleRegisPress(
+        fullnameInput.value,
+        usernameInput.value,
+        noIdInput.value,
+        passwordInput.value,
+        confirmPasswordInput.value,
+        navigation
+      );
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
   return (
     <SafeAreaView style={Styles.container}>
       <StatusBar style="auto" />
@@ -67,14 +97,15 @@ const RegistrationScreen = ({ navigation }) => {
               placeholder="Password"
               placeholderTextColor="#7C808D"
               selectionColor="#3662AA"
-              secureTextEntry={!passwordIsVisible}
+              // secureTextEntry={!passwordIsVisible}
+              {...passwordInput}
             />
             <TouchableOpacity
               style={Styles.passwordVisibleButton}
-              onPress={() => setPasswordIsVisible(!passwordIsVisible)}
+              onPress={passwordInput.toggleVisibility}
             >
               <Feather
-                name={passwordIsVisible ? "eye-off" : "eye"}
+                name={passwordInput.isVisible ? "eye-off" : "eye"}
                 size={20}
                 color="#7C808D"
               />
@@ -90,22 +121,28 @@ const RegistrationScreen = ({ navigation }) => {
               placeholder="Konfirmasi Password"
               placeholderTextColor="#7C808D"
               selectionColor="#3662AA"
-              secureTextEntry={!passwordIsVisible}
+              // secureTextEntry={!passwordIsVisible}
+              {...confirmPasswordInput}
             />
             <TouchableOpacity
               style={Styles.passwordVisibleButton}
-              onPress={() => setPasswordIsVisible(!passwordIsVisible)}
+              onPress={confirmPasswordInput.toggleVisibility}
             >
               <Feather
-                name={passwordIsVisible ? "eye-off" : "eye"}
+                name={confirmPasswordInput.isVisible ? "eye-off" : "eye"}
                 size={20}
                 color="#7C808D"
               />
             </TouchableOpacity>
           </View>
-          <TouchableOpacity style={Styles.loginButton}>
+          <TouchableOpacity style={Styles.loginButton} onPress={handleRegis}>
             <Text style={Styles.loginButtonText}>Registrasi</Text>
           </TouchableOpacity>
+          {loading && (
+            <View style={Styles.activityIndicatorContainer}>
+              <ActivityIndicator size="large" color="blue" />
+            </View>
+          )}
           <View style={Styles.orContainer}>
             <View style={Styles.orLine} />
             <Text style={Styles.orText}>ATAU</Text>
@@ -129,4 +166,4 @@ const RegistrationScreen = ({ navigation }) => {
   );
 };
 
-export default RegistrationScreen
+export default RegistrationScreen;
