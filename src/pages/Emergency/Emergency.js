@@ -7,31 +7,29 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import { HandlePanicPress } from "./HandlePanic"
+import { HandlePanicPress } from "./HandlePanic";
+import { emergencyText } from "../../constant/emergencyText";
 import ToastNotification from "../../components/ToastMessage";
 import { MaterialIcons } from "@expo/vector-icons";
 
-const Emergency = ({route, navigation, emailOrUsername}) => {
+const Emergency = ({ route, navigation, emailOrUsername }) => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
       <ScrollView contentContainerStyle={styles.container}>
         <View style={styles.box}>
           <Text style={styles.title}>Perhatian!</Text>
-          <Text style={styles.subtitle}>
-            Tombol Panic Button digunakan sebagai sarana penting dalam situasi
-            darurat ketika jamaah haji menghadapi kondisi-kondisi kritis seperti
-            sakit yang berat, tersesat, atau situasi darurat lainnya selama
-            perjalanan mereka. Dengan sekali tekan tombol ini, jamaah haji dapat
-            segera memicu respons darurat yang akan menghubungkan mereka dengan
-            pihak berwenang atau bantuan medis untuk memberikan pertolongan dan
-            bantuan secepat mungkin. Tombol Panic Button adalah alat yang
-            krusial untuk memastikan keselamatan dan kesejahteraan jamaah haji
-            dalam perjalanan mereka yang penuh tantangan ini.
-          </Text>
-          <TouchableOpacity style={styles.button} onPress={()=>HandlePanicPress(emailOrUsername)}>
+          {emergencyText.map((text, index) => (
+            <Text key={index} style={styles.subtitle}>
+              {text}
+            </Text>
+          ))}
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => HandlePanicPress(emailOrUsername)}
+          >
             <View style={styles.inline}>
               <MaterialIcons name="warning" size={20} color="white" />
-              <Text style={styles.text}> Panic</Text>
+              <Text style={styles.text}> Emergency</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -46,7 +44,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   box: {
-    backgroundColor: "#3662AA", // Background color of the box
+    backgroundColor: "#cfe2f3", // Background color of the box
     borderRadius: 10, // Optional: Add border radius for rounded corners
     padding: 20, // Optional: Add padding to create space inside the box
     shadowColor: "#000", // Optional: Add shadow to the box
@@ -62,14 +60,14 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "700",
     color: "red",
-    marginBottom: 30,
+    marginBottom: 20,
   },
   subtitle: {
     fontSize: 15,
     fontWeight: "500",
-    color: "white",
+    color: "black",
     marginBottom: 20,
-    textAlign:'justify'
+    textAlign: "justify",
   },
   button: {
     alignItems: "center",
@@ -79,7 +77,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     elevation: 3,
     backgroundColor: "red",
-    width: 150,
+    width: "100%",
   },
   text: {
     fontSize: 16,
@@ -87,7 +85,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "white",
-    
   },
   inline: {
     flexDirection: "row", // Align icon and text horizontally

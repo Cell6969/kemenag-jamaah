@@ -6,13 +6,14 @@ import {
   DrawerItemList,
   createDrawerNavigator,
 } from "@react-navigation/drawer";
+import CustomDrawer from "../components/CustomDrawer";
+import CustomDrawerIcon from "../components/CustomDrawerIcon";
 import Maps from "../pages/Maps/Maps";
 import MecaPage from "../pages/Mecca/Mecca";
 import MadinahPage from "../pages/Madinah/Madinah";
 import Guide from "../pages/HajjGuide/Guide";
 import Emergency from "../pages/Emergency/Emergency";
 import About from "../pages/About";
-import logo from "../../assets/peruri-logo.png";
 
 const Drawer = createDrawerNavigator();
 
@@ -22,27 +23,10 @@ const DrawerMenu = ({ route, navigation }) => {
       <StatusBar style="light" />
       <Drawer.Navigator
         initialRouteName="Maps"
-        drawerContent={(props) => {
-          return (
-            <SafeAreaView>
-              <View
-                style={{
-                  height: 200,
-                  width: "100%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderBottomColor: "#f4f4f4",
-                  borderBottomWidth: 1,
-                  backgroundColor: "white",
-                }}
-              >
-                <Image source={logo} style={{ height: 130, width: 130 }} />
-              </View>
-              <DrawerItemList {...props} />
-            </SafeAreaView>
-          );
-        }}
+        drawerContent={(props) => <CustomDrawer {...props} />}
         screenOptions={{
+          drawerActiveTintColor: "white",
+          drawerInactiveTintColor: "black",
           drawerStyle: {
             backgroundColor: "#ffffff",
             width: 250,
@@ -55,9 +39,6 @@ const DrawerMenu = ({ route, navigation }) => {
             fontWeight: "bold",
           },
           drawerActiveBackgroundColor: "#3662AA",
-          drawerLabelStyle: {
-            color: "black",
-          },
         }}
       >
         <Drawer.Screen
@@ -65,8 +46,8 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Maps",
             title: "Maps",
-            drawerIcon: () => (
-              <MaterialIcons name="map" size={20} color="black" />
+            drawerIcon: ({ focused }) => (
+              <CustomDrawerIcon name="map" size={20} focused={focused} />
             ),
           }}
           // component={Maps}
@@ -80,8 +61,8 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Mekah",
             title: "Mekah",
-            drawerIcon: () => (
-              <MaterialIcons name="place" size={20} color="black" />
+            drawerIcon: ({focused}) => (
+              <CustomDrawerIcon name="place" size={20} focused={focused} />
             ),
           }}
           component={MecaPage}
@@ -91,8 +72,8 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Madinah",
             title: "Madinah",
-            drawerIcon: () => (
-              <MaterialIcons name="place" size={20} color="black" />
+            drawerIcon: ({focused}) => (
+              <CustomDrawerIcon name="place" size={20} focused={focused} />
             ),
           }}
           component={MadinahPage}
@@ -102,8 +83,8 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Tata Cara Haji",
             title: "Tata Cara Haji",
-            drawerIcon: () => (
-              <MaterialIcons name="person" size={20} color="black" />
+            drawerIcon: ({focused}) => (
+              <CustomDrawerIcon name="person" size={20} focused={focused} />
             ),
           }}
           component={Guide}
@@ -113,13 +94,16 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Emergency",
             title: "Emergency",
-            drawerIcon: () => (
-              <MaterialIcons name="warning" size={20} color="black" />
+            drawerIcon: ({focused}) => (
+              <CustomDrawerIcon name="warning" size={20} focused={focused} />
             ),
           }}
         >
           {(props) => (
-            <Emergency {...props} emailOrUsername={route.params.emailOrUsername} />
+            <Emergency
+              {...props}
+              emailOrUsername={route.params.emailOrUsername}
+            />
           )}
         </Drawer.Screen>
         {/* <Drawer.Screen
