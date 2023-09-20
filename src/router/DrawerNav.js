@@ -14,6 +14,7 @@ import MadinahPage from "../pages/Madinah/Madinah";
 import Guide from "../pages/HajjGuide/Guide";
 import Emergency from "../pages/Emergency/Emergency";
 import About from "../pages/About";
+import UserProfile from "../pages/Profile/UserProfile";
 
 const Drawer = createDrawerNavigator();
 
@@ -61,7 +62,7 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Mekah",
             title: "Mekah",
-            drawerIcon: ({focused}) => (
+            drawerIcon: ({ focused }) => (
               <CustomDrawerIcon name="place" size={20} focused={focused} />
             ),
           }}
@@ -72,7 +73,7 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Madinah",
             title: "Madinah",
-            drawerIcon: ({focused}) => (
+            drawerIcon: ({ focused }) => (
               <CustomDrawerIcon name="place" size={20} focused={focused} />
             ),
           }}
@@ -83,7 +84,7 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Tata Cara Haji",
             title: "Tata Cara Haji",
-            drawerIcon: ({focused}) => (
+            drawerIcon: ({ focused }) => (
               <CustomDrawerIcon name="person" size={20} focused={focused} />
             ),
           }}
@@ -94,13 +95,30 @@ const DrawerMenu = ({ route, navigation }) => {
           options={{
             drawerLabel: "Emergency",
             title: "Emergency",
-            drawerIcon: ({focused}) => (
+            drawerIcon: ({ focused }) => (
               <CustomDrawerIcon name="warning" size={20} focused={focused} />
             ),
           }}
         >
           {(props) => (
             <Emergency
+              {...props}
+              emailOrUsername={route.params.emailOrUsername}
+            />
+          )}
+        </Drawer.Screen>
+        <Drawer.Screen
+          name="Profile"
+          options={{
+            drawerLabel: "Profile",
+            title: "Profile",
+            drawerIcon: ({ focused }) => (
+              <CustomDrawerIcon name="person" size={20} focused={focused} />
+            ),
+          }}
+        >
+          {(props) => (
+            <UserProfile
               {...props}
               emailOrUsername={route.params.emailOrUsername}
             />

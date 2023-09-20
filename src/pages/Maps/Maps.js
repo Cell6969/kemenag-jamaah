@@ -3,13 +3,13 @@ import { View, StyleSheet, Button, Text } from "react-native";
 import MapView, { Marker, Polygon } from "react-native-maps";
 import { GetLocation } from "../../utils/getLocation";
 import MqttClient from "../../config/setupMqtt";
-import * as geolib from "geolib"
+import * as geolib from "geolib";
 
 const DDICoordinate = [
   { latitude: -6.2704636596703865, longitude: 106.81582836752656 },
   { latitude: -6.2704636596703865, longitude: 106.81702836752656 },
-  { latitude: -6.272140096703865, longitude: 106.81702836752656 },
-  { latitude: -6.272140096703865, longitude: 106.81582836752656 },
+  { latitude: -6.274140096703865, longitude: 106.81702836752656 },
+  { latitude: -6.274140096703865, longitude: 106.81582836752656 },
 ];
 
 const Maps = ({ route, navigation, emailOrUsername }) => {
@@ -31,6 +31,16 @@ const Maps = ({ route, navigation, emailOrUsername }) => {
       const coords = await GetLocation();
       if (coords) {
         updateLocation(coords.latitude, coords.longitude);
+        const isInsidePolygon = geolib.isPointInPolygon(
+          coords,
+          DDICoordinate
+        );
+
+        if (isInsidePolygon) {
+          console.log("Already on Check point");
+        } else {
+          console.log("Not in check point");
+        }
       } else {
         console.log("Permission Denied");
         // Navigate to the login page when permission is denied
@@ -45,22 +55,9 @@ const Maps = ({ route, navigation, emailOrUsername }) => {
     // Connect MQtt
     mqttclient.connect();
 
-    // FetchLocation
-    fetchLocation();
-
     // Create update fetch
     const locationInterval = setInterval(() => {
       fetchLocation();
-      const isInsidePolygon = geolib.isPointInPolygon(
-        userCoordinate,
-        DDICoordinate
-      );
-
-      if (isInsidePolygon) {
-        console.log('Already on Check point')
-      } else {
-        console.log('Not in check point')
-      }
     }, 4000); // Fetch location every 5 seconds
 
     return () => {
