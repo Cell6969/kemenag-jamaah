@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 export const CardProfile = ({
   fullname,
@@ -9,10 +9,7 @@ export const CardProfile = ({
   passport,
   embarcation,
   travelTour,
-  medicalCondition,
-  numHeart,
-  oxygenRate,
-  temperature
+  hotel
 }) => {
   return (
     <Card style={styles.card}>
@@ -36,7 +33,7 @@ export const CardProfile = ({
         <View style={styles.infoBox}>
           <MaterialCommunityIcons
             name="airplane-marker"
-            size={30}
+            size={25}
             color="white"
           />
           <Text style={styles.infoText}>Embarkasi: {embarcation}</Text>
@@ -50,25 +47,13 @@ export const CardProfile = ({
           />
           <Text style={styles.infoText}>Travel: {travelTour}</Text>
         </View>
-
         <View style={styles.infoBox}>
-          <MaterialCommunityIcons name="medical-bag" size={25} color="white" />
-          <Text style={styles.infoText}>Keadaan Medis: {medicalCondition}</Text>
-        </View>
-
-        <View style={styles.infoBox}>
-          <MaterialCommunityIcons name="cards-heart" size={25} color="white" />
-          <Text style={styles.infoText}>Detak Jantung: {numHeart}</Text>
-        </View>
-
-        <View style={styles.infoBox}>
-          <MaterialCommunityIcons name="water" size={25} color="white" />
-          <Text style={styles.infoText}>Tingkat Oxygen: {oxygenRate}</Text>
-        </View>
-
-        <View style={styles.infoBox}>
-          <MaterialCommunityIcons name="temperature-celsius" size={25} color="white" />
-          <Text style={styles.infoText}>Temperatur: {temperature}</Text>
+          <MaterialIcons
+            name="hotel"
+            size={25}
+            color="white"
+          />
+          <Text style={styles.infoText}>Hotel: {hotel}</Text>
         </View>
       </Card.Content>
     </Card>

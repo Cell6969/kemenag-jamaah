@@ -1,16 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Button, Text } from "react-native";
-import MapView, { Marker, Polygon } from "react-native-maps";
+import MapView, { Marker, Polygon, Circle } from "react-native-maps";
 import { GetLocation } from "../../utils/getLocation";
 import MqttClient from "../../config/setupMqtt";
 import * as geolib from "geolib";
+import {
+  checkpointLonLat,
+  checkpointHajj,
+} from "../../constant/checkpointHajj";
+import { updateCheckpoint } from "../../utils/updateCheckpoint";
 
-const DDICoordinate = [
-  { latitude: -6.2704636596703865, longitude: 106.81582836752656 },
-  { latitude: -6.2704636596703865, longitude: 106.81702836752656 },
-  { latitude: -6.274140096703865, longitude: 106.81702836752656 },
-  { latitude: -6.274140096703865, longitude: 106.81582836752656 },
-];
+const DDICircleCoordinate = {
+  latitude: -6.2714636596703865,
+  longitude: 106.81692836752656,
+};
+const radius = 50;
+
+// Define function for check user coordinate on checkpoint
+function checkUserInRadius(coords, checkpointLonLat, radius, emailOrUsername) {
+  for (const key in checkpointLonLat) {
+    const checkpoint = checkpointLonLat[key];
+    const isInsideCircle = geolib.isPointWithinRadius(
+      coords,
+      checkpoint,
+      radius
+    );
+    if (isInsideCircle) {
+      updateCheckpoint(emailOrUsername, key, checkpointHajj[key].recent);
+      console.log('Already on Checkpoint and Successful Update')
+    }
+  }
+}
 
 const Maps = ({ route, navigation, emailOrUsername }) => {
   const [userCoordinate, setUserCoordinate] = useState({
@@ -31,16 +51,18 @@ const Maps = ({ route, navigation, emailOrUsername }) => {
       const coords = await GetLocation();
       if (coords) {
         updateLocation(coords.latitude, coords.longitude);
-        const isInsidePolygon = geolib.isPointInPolygon(
-          coords,
-          DDICoordinate
-        );
+        // const isInsideCircle = geolib.isPointWithinRadius(
+        //   coords,
+        //   checkpointLonLat[1],
+        //   radius
+        // );
 
-        if (isInsidePolygon) {
-          console.log("Already on Check point");
-        } else {
-          console.log("Not in check point");
-        }
+        // if (isInsideCircle) {
+        //   console.log("Already on Check point");
+        // } else {
+        //   console.log("Not in check point");
+        // }
+        checkUserInRadius(coords, checkpointLonLat, radius, emailOrUsername);
       } else {
         console.log("Permission Denied");
         // Navigate to the login page when permission is denied
@@ -80,11 +102,12 @@ const Maps = ({ route, navigation, emailOrUsername }) => {
         }}
         legalLabelInsets={{ top: 0, right: 0, bottom: 0, left: 0 }}
       >
-        <Polygon
-          coordinates={DDICoordinate}
-          strokeWidth={2} // Adjust stroke width as needed
-          strokeColor="red" // Color of the polygon border
-          fillColor="rgba(255, 0, 0, 0.5)" // Fill color of the polygon
+        <Circle
+          center={DDICircleCoordinate}
+          radius={radius}
+          strokeWidth={2}
+          strokeColor="#3399ff"
+          fillColor="#80bfff"
         />
         <Marker
           coordinate={userCoordinate}

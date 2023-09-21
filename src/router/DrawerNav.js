@@ -43,6 +43,23 @@ const DrawerMenu = ({ route, navigation }) => {
         }}
       >
         <Drawer.Screen
+          name="Profile"
+          options={{
+            drawerLabel: "Profile",
+            title: "Profile",
+            drawerIcon: ({ focused }) => (
+              <CustomDrawerIcon name="person" size={20} focused={focused} />
+            ),
+          }}
+        >
+          {(props) => (
+            <UserProfile
+              {...props}
+              emailOrUsername={route.params.emailOrUsername}
+            />
+          )}
+        </Drawer.Screen>
+        <Drawer.Screen
           name="Maps"
           options={{
             drawerLabel: "Maps",
@@ -102,23 +119,6 @@ const DrawerMenu = ({ route, navigation }) => {
         >
           {(props) => (
             <Emergency
-              {...props}
-              emailOrUsername={route.params.emailOrUsername}
-            />
-          )}
-        </Drawer.Screen>
-        <Drawer.Screen
-          name="Profile"
-          options={{
-            drawerLabel: "Profile",
-            title: "Profile",
-            drawerIcon: ({ focused }) => (
-              <CustomDrawerIcon name="person" size={20} focused={focused} />
-            ),
-          }}
-        >
-          {(props) => (
-            <UserProfile
               {...props}
               emailOrUsername={route.params.emailOrUsername}
             />

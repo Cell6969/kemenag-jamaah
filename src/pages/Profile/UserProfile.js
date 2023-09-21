@@ -1,53 +1,80 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, StyleSheet, ScrollView } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Card } from "react-native-paper"; // Import Card component from a UI library
-import ColoredBoxList from "../../components/ListBoxProgress";
+import { Text, StyleSheet, ScrollView } from "react-native";
 import { CardProfile } from "../../components/CardProfile";
 import { fetchUserInfo } from "./getInformation";
+import { CustomCircularProgress } from "../../components/CircularProgress";
+import Spinner from "react-native-loading-spinner-overlay";
+import { CardMedical } from "../../components/CardMedical";
+import Swiper from "react-native-swiper";
+
+const OnBoardingScreen1 = () => {
+
+};
+
+const OnBoardingScreen2 = () => {
+
+};
 
 const UserProfile = ({ route, navigation, emailOrUsername }) => {
   const [userInfo, setUserInfo] = useState(null);
-  const task = [
-    { id: "1", task: "Ihram" },
-    { id: "2", task: "Wukuf di Arafah" },
-    { id: "3", task: "Tawaf" },
-    { id: "4", task: "Sa'i" },
-    { id: "5", task: "Tahallul" },
-    { id: "6", task: "Lempar Jumroh di Mina" },
-  ];
+  const [loading, setLoading] = useState(true);
+  const [swiperIndex, setSwiperIndex] = useState(0);
+
+  const handleSwipe = (index) => {
+    setSwiperIndex(index)
+  }
 
   useEffect(() => {
-    fetchUserInfo(emailOrUsername)
-      .then((data) => {
-        if (data) {
-          setUserInfo(data);
-        }
-      })
-      .catch((error) => {
-        console.log("Error Fetching user information", error);
-      });
+    setTimeout(() => {
+      fetchUserInfo(emailOrUsername)
+        .then((data) => {
+          if (data) {
+            setUserInfo(data);
+          }
+        })
+        .catch((error) => {
+          console.log("Error Fetching user information", error);
+        })
+        .finally(() => {
+          // Turn off the loading spinner when the data is fetched
+          setLoading(false);
+        });
+    }, 2000); // Simulate a 2-second delay for the API cal
   }, [emailOrUsername]);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* User Information Card */}
       {userInfo && (
-        <CardProfile
-          fullname={userInfo.fullname}
-          noid={userInfo.noId}
-          passport={userInfo.passport}
-          embarcation={userInfo.embarkasiName}
-          travelTour={userInfo.travelName}
-          medicalCondition={userInfo.medicalCondition}
-          numHeart={userInfo.heart_rate}
-          oxygenRate={userInfo.oxygenLevel}
-          temperature={userInfo.temperatureLevel}
-        />
+        <>
+          <Text style={styles.todoTitle}>Informasi Pengguna</Text>
+          <CardProfile
+            fullname={userInfo.fullname}
+            noid={userInfo.noId}
+            passport={userInfo.passport}
+            embarcation={userInfo.embarkasiName}
+            travelTour={userInfo.travelName}
+            hotel={userInfo.hotel}
+          />
+          <Text style={styles.todoTitle}>Kondisi Kesehatan</Text>
+          <CardMedical
+            medicalCondition={userInfo.medicalCondition}
+            numHeart={userInfo.heart_rate}
+            oxygenRate={userInfo.oxygenLevel}
+            temperature={userInfo.temperatureLevel}
+          />
+          <Text style={styles.todoTitle}>Checkpoint Haji</Text>
+          <CustomCircularProgress
+            checkpoint={userInfo.checkpoint}
+          />
+        </>
       )}
-      {/* To-Do List */}
-      <Text style={styles.todoTitle}>Checkpoint Haji</Text>
-      <ColoredBoxList tasks={task} />
+      <Spinner
+        visible={loading} // Set to true to display the spinner
+        textContent={"Loading..."}
+        textStyle={styles.spinnerText}
+        color="#3662AA"
+      />
     </ScrollView>
   );
 };
@@ -62,7 +89,6 @@ const styles = StyleSheet.create({
   todoTitle: {
     fontSize: 20,
     fontWeight: "bold",
-    marginTop: 20,
     marginBottom: 10,
   },
   taskItem: {
@@ -73,6 +99,9 @@ const styles = StyleSheet.create({
   taskText: {
     marginLeft: 10,
     fontSize: 16,
+  },
+  spinnerText: {
+    color: "#3662AA",
   },
 });
 
