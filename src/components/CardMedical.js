@@ -10,9 +10,9 @@ export const CardMedical = ({
   temperature,
 }) => {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <>
       <View style={styles.cardContainer}>
-        <Card style={[styles.card, {backgroundColor:'#93c47d'}]}>
+        <Card style={[styles.card, { backgroundColor: "#93c47d" }]}>
           <Card.Content>
             <View style={styles.iconBox}>
               <MaterialCommunityIcons
@@ -27,7 +27,7 @@ export const CardMedical = ({
             </View>
           </Card.Content>
         </Card>
-        <Card style={[styles.card, {backgroundColor:'#76a5af'}]}>
+        <Card style={[styles.card, { backgroundColor: "#76a5af" }]}>
           <Card.Content>
             <View style={styles.iconBox}>
               <MaterialCommunityIcons
@@ -44,14 +44,10 @@ export const CardMedical = ({
         </Card>
       </View>
       <View style={styles.cardContainer}>
-        <Card style={[styles.card, {backgroundColor:'#f6b26b'}]}>
+        <Card style={[styles.card, { backgroundColor: "#f6b26b" }]}>
           <Card.Content>
             <View style={styles.iconBox}>
-              <MaterialCommunityIcons
-                name="water"
-                size={25}
-                color="white"
-              />
+              <MaterialCommunityIcons name="water" size={25} color="white" />
             </View>
             <View style={styles.textBox}>
               <Text style={styles.infoText}>Tingkat Oxygen</Text>
@@ -59,7 +55,7 @@ export const CardMedical = ({
             </View>
           </Card.Content>
         </Card>
-        <Card style={[styles.card, {backgroundColor:'#8e7cc3'}]}>
+        <Card style={[styles.card, { backgroundColor: "#8e7cc3" }]}>
           <Card.Content>
             <View style={styles.iconBox}>
               <MaterialCommunityIcons
@@ -75,7 +71,7 @@ export const CardMedical = ({
           </Card.Content>
         </Card>
       </View>
-    </ScrollView>
+    </>
   );
 };
 
@@ -83,13 +79,13 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: "#f6f6f6",
-    paddingVertical: 20,
+    paddingVertical: 15,
     paddingHorizontal: 15,
   },
   cardContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 20,
+    marginTop:10
   },
   card: {
     flex: 1,

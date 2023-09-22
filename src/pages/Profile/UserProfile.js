@@ -5,24 +5,16 @@ import { fetchUserInfo } from "./getInformation";
 import { CustomCircularProgress } from "../../components/CircularProgress";
 import Spinner from "react-native-loading-spinner-overlay";
 import { CardMedical } from "../../components/CardMedical";
-import Swiper from "react-native-swiper";
-
-const OnBoardingScreen1 = () => {
-
-};
-
-const OnBoardingScreen2 = () => {
-
-};
+import { ProgressLine } from "../../components/StepCheckpoint";
+import { CardCheckpoint } from "../../components/CardCheckpoint";
 
 const UserProfile = ({ route, navigation, emailOrUsername }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [swiperIndex, setSwiperIndex] = useState(0);
 
   const handleSwipe = (index) => {
-    setSwiperIndex(index)
-  }
+    setSwiperIndex(index);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -47,7 +39,9 @@ const UserProfile = ({ route, navigation, emailOrUsername }) => {
       {/* User Information Card */}
       {userInfo && (
         <>
-          <Text style={styles.todoTitle}>Informasi Pengguna</Text>
+          <Text style={{ fontSize: 20, fontWeight: "bold", marginBottom: 10 }}>
+            Informasi Pengguna
+          </Text>
           <CardProfile
             fullname={userInfo.fullname}
             noid={userInfo.noId}
@@ -56,17 +50,15 @@ const UserProfile = ({ route, navigation, emailOrUsername }) => {
             travelTour={userInfo.travelName}
             hotel={userInfo.hotel}
           />
-          <Text style={styles.todoTitle}>Kondisi Kesehatan</Text>
+          <Text style={[styles.todoTitle, {marginTop: 25}]}>Kondisi Kesehatan</Text>
           <CardMedical
             medicalCondition={userInfo.medicalCondition}
             numHeart={userInfo.heart_rate}
             oxygenRate={userInfo.oxygenLevel}
             temperature={userInfo.temperatureLevel}
           />
-          <Text style={styles.todoTitle}>Checkpoint Haji</Text>
-          <CustomCircularProgress
-            checkpoint={userInfo.checkpoint}
-          />
+          <Text style={[styles.todoTitle, {marginBottom: 15, marginTop:25}]}>Checkpoint Haji</Text>
+          <CardCheckpoint userInfo={userInfo} />
         </>
       )}
       <Spinner
@@ -90,6 +82,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
+    marginTop: 10,
   },
   taskItem: {
     flexDirection: "row",

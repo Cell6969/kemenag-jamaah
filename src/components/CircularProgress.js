@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import {
-  CircularProgress,
   AnimatedCircularProgress,
 } from "react-native-circular-progress"; // Import CircularProgress from the library
 import { checkpointHajj } from "../constant/checkpointHajj";
@@ -18,7 +17,7 @@ export const CustomCircularProgress = ({
           width={10}
           fill={statusJamaah.activityPercent}
           tintColor={statusJamaah.color}
-          backgroundColor="#d4d4d4"
+          backgroundColor="white"
         >
           {(fill) => (
             <Text style={styles.progressText}>{`${Math.round(fill)}%`}</Text>
@@ -37,7 +36,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    alignSelf: "center"
+    alignSelf: "center",
+    marginBottom: 20
   },
   progressBox: {
     alignItems: "center",
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   progressText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#3498db",
+    color: "white",
   },
   textContainer: {
     marginLeft: 20,
@@ -54,9 +54,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 20,
+    color: 'white'
   },
   bottomText: {
     fontSize: 16,
     fontWeight: "bold",
+    color: 'white'
   },
 });

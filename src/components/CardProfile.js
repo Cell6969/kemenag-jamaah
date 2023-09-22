@@ -62,7 +62,6 @@ export const CardProfile = ({
 
 const styles = StyleSheet.create({
   card: {
-    marginBottom: 20,
     backgroundColor: "#3662AA",
   },
   infoTitle: {
