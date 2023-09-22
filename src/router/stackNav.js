@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import LoginScreen from "../pages/Login/LoginPage";
 import RegistrationScreen from "../pages/Registration/RegistrationPage";
 import DrawerMenu from "./DrawerNav";
-import { ToastProvider } from "react-native-toast-notifications";
+
 
 const Stack = createStackNavigator();
 

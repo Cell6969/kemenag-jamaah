@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Text, StyleSheet, ScrollView } from "react-native";
 import { CardProfile } from "../../components/CardProfile";
 import { fetchUserInfo } from "./getInformation";
-import { CustomCircularProgress } from "../../components/CircularProgress";
 import Spinner from "react-native-loading-spinner-overlay";
 import { CardMedical } from "../../components/CardMedical";
-import { ProgressLine } from "../../components/StepCheckpoint";
 import { CardCheckpoint } from "../../components/CardCheckpoint";
 
 const UserProfile = ({ route, navigation, emailOrUsername }) => {

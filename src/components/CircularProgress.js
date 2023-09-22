@@ -16,7 +16,7 @@ export const CustomCircularProgress = ({
           size={100}
           width={10}
           fill={statusJamaah.activityPercent}
-          tintColor={statusJamaah.color}
+          tintColor="#6fa8dc"
           backgroundColor="white"
         >
           {(fill) => (
