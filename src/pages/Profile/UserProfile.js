@@ -9,11 +9,7 @@ import { CardCheckpoint } from "../../components/CardCheckpoint";
 const UserProfile = ({ route, navigation, emailOrUsername }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const handleSwipe = (index) => {
-    setSwiperIndex(index);
-  };
-
+  
   useEffect(() => {
     setTimeout(() => {
       fetchUserInfo(emailOrUsername)

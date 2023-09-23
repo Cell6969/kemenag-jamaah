@@ -4,6 +4,45 @@ export const meccaCity = {
   longitude: 0.0,
 };
 
+export const MoneyChangerMecca = [
+  {
+    money_changer: "Mohammed Omar Sannan for Exchange Money",
+    latitude: 21.41525358031707,
+    longitude: 39.821459055120954,
+    id: 1,
+  },
+  {
+    money_changer: "Al Minhali Currency Exchange",
+    latitude: 21.43898338361126,
+    longitude: 39.83158707643129,
+    id: 2,
+  },
+  {
+    money_changer: "Repairman Aljmiei Exchange Co.",
+    latitude: 21.433950111296358,
+    longitude: 39.82815384886847,
+    id: 3,
+  },
+  {
+    money_changer: "Abdulrahman Mohammed Bazaid Exchange Est",
+    latitude: 21.419950605317656,
+    longitude: 39.86179368229976,
+    id: 4,
+  },
+  {
+    money_changer: "Hossam Al-Harthi Exchange",
+    latitude: 21.4197279773174,
+    longitude: 39.826560661627646,
+    id: 5,
+  },
+  {
+    money_changer: "Mohammed Omar Sannan for Exchange Money",
+    latitude: 21.41517347109666,
+    longitude: 39.82123915890527,
+    id: 6,
+  },
+];
+
 export const HotelMecca = [
   {
     nama_hotel: "Arkan Bakkah",

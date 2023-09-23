@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export const LegendMap = () => {
+const LegendMap = () => {
   return (
     <View style={styles.legendContainer}>
       {/* Add legend items */}
@@ -12,6 +12,10 @@ export const LegendMap = () => {
       <View style={styles.legendItem}>
         <View style={[styles.legendIcon, { backgroundColor: "red" }]} />
         <Text>Rumah Sakit</Text>
+      </View>
+      <View style={styles.legendItem}>
+        <View style={[styles.legendIcon, { backgroundColor: "#8fce00" }]} />
+        <Text>Money Changer</Text>
       </View>
       {/* Add more legend items as needed */}
     </View>
