@@ -480,6 +480,117 @@ export const HospitalMecca = [
     id: 9,
   },
 ];
+
+export const BusMecca = [
+  {
+      "name_bus_station": "SAPTCO - Al Haram Station",
+      "latitude": 21.43060489044307,
+      "longtitude": 39.81725982744027,
+      "id": 1
+  },
+  {
+      "name_bus_station": "Bus stand makkah",
+      "latitude": 21.422047545610678,
+      "longtitude": 39.83311321513462,
+      "id": 2
+  },
+  {
+      "name_bus_station": "Al Ghaza Bus Station",
+      "latitude": 21.4293209170428,
+      "longtitude": 39.82981021358349,
+      "id": 3
+  },
+  {
+      "name_bus_station": "SAPTCO BUS STATION FOR HARAM",
+      "latitude": 21.42597733444942,
+      "longtitude": 39.86147775606458,
+      "id": 4
+  },
+  {
+      "name_bus_station": "Masjid al-Taneem Bus Stop / Miqat Ahl Mecca",
+      "latitude": 21.429738516179228,
+      "longtitude": 39.81773792835403,
+      "id": 5
+  },
+  {
+      "name_bus_station": "Makkah Bus Station",
+      "latitude": 21.430074085695036,
+      "longtitude": 39.82970467743414,
+      "id": 6
+  },
+  {
+      "name_bus_station": "Bus Station - Rusaifa 86",
+      "latitude": 21.402230903690512,
+      "longtitude": 39.787600197345846,
+      "id": 7
+  },
+  {
+      "name_bus_station": "Aziziya bus station 177",
+      "latitude": 21.399507803616377,
+      "longtitude": 39.864857003672114,
+      "id": 8
+  },
+  {
+      "name_bus_station": "Makkah Bus Station No. 173 in Azizia",
+      "latitude": 21.41260924828998,
+      "longtitude": 39.85807335101943,
+      "id": 9
+  },
+  {
+      "name_bus_station": "Jamarat 2nd Floor Bus Station",
+      "latitude": 21.408050414991312,
+      "longtitude": 39.872577264113126,
+      "id": 10
+  },
+  {
+      "name_bus_station": "Al Haram bus stop makkah",
+      "latitude": 21.43009429450343,
+      "longtitude": 39.82970142949302,
+      "id": 11
+  },
+  {
+      "name_bus_station": "Shaib amir bus station",
+      "latitude": 21.428893171611513,
+      "longtitude": 39.83057145905659,
+      "id": 12
+  },
+  {
+      "name_bus_station": "Saptco",
+      "latitude": 21.42908609868853,
+      "longtitude": 39.830508410387914,
+      "id": 13
+  },
+  {
+      "name_bus_station": "Bus Makarem Mena",
+      "latitude": 21.417738730481563,
+      "longtitude": 39.83090103754377,
+      "id": 14
+  },
+  {
+      "name_bus_station": "C zone bus station",
+      "latitude": 21.415071277447385,
+      "longtitude": 39.827054656047146,
+      "id": 15
+  },
+  {
+      "name_bus_station": "Meni Bus Stop",
+      "latitude": 21.41251105711053,
+      "longtitude": 39.82806264001678,
+      "id": 16
+  },
+  {
+      "name_bus_station": "Bus Stop aziziyah 452",
+      "latitude": 21.394375699607696,
+      "longtitude": 39.86863025439338,
+      "id": 17
+  },
+  {
+      "name_bus_station": "Al-Rusaifah 83 Makkah Bus Stop",
+      "latitude": 21.4062081061346,
+      "longtitude": 39.78816103841525,
+      "id": 18
+  }
+]
 // Madina City
 export const madinaCity = {
   latitude: 0.0,

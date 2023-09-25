@@ -17,6 +17,9 @@ const UserProfile = ({ route, navigation, emailOrUsername }) => {
           if (data) {
             setUserInfo(data);
           }
+          else {
+            setUserInfo('-')
+          }
         })
         .catch((error) => {
           console.log("Error Fetching user information", error);
