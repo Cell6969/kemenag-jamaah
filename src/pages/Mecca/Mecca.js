@@ -21,16 +21,9 @@ const data = categoriesFilter.map((item) => ({
   value: item.name,
 }));
 
-// categoriesFilter.map((category)=> {
-//   if (category.name==='Rumah Sakit') {
-//     console.log(category.data)
-//   }
-// })
-
 const MecaPage = ({ route, navigation }) => {
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [searchText, setSearchText] = useState("");
   const [filteredCategories, setFilteredCategories] = useState(null);
 
   useEffect(() => {
@@ -47,12 +40,6 @@ const MecaPage = ({ route, navigation }) => {
         });
     }, 2000);
   }, []);
-
-  // Create function to search
-  const filterCategories = (text) => {
-    setSearchText(text);
-    setFilteredCategories(null);
-  };
 
   return (
     <View style={styles.container}>

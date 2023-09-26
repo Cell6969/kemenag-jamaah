@@ -11,11 +11,20 @@ import MapView, { Marker } from "react-native-maps";
 import { CardWeather } from "../../components/CardWeather";
 import Spinner from "react-native-loading-spinner-overlay";
 import { getWeather } from "./getWeatherMadina";
-import { Ionicons } from "@expo/vector-icons";
+import styles from "../../theme/stylesMadinaMeca";
+import { DropdownList } from "../../components/DropdownList";
+import categoriesFilterMadina from "../../constant/chipsItemMadina";
+import map_marker from "../../../assets/map_marker.png";
+
+const data = categoriesFilterMadina.map((item) => ({
+  label: item.name,
+  value: item.name,
+}));
 
 const MadinahPage = ({ route, navigation }) => {
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [filteredCategories, setFilteredCategories] = useState(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -46,6 +55,46 @@ const MadinahPage = ({ route, navigation }) => {
             >
               Lokasi Sekitar Madinah
             </Text>
+            <View style={styles.topSection}>
+              <DropdownList
+                data={data}
+                categories={categoriesFilterMadina}
+                filteredCategories={filteredCategories}
+                setFilteredCategories={setFilteredCategories}
+              />
+              <ScrollView
+                horizontal
+                scrollEventThrottle={1}
+                showsHorizontalScrollIndicator={false}
+                height={50}
+                style={styles.chipsScrollView}
+                contentInset={{
+                  top: 0,
+                  left: 0,
+                  bottom: 0,
+                  right: 20,
+                }}
+                contentContainerStyle={{
+                  paddingRight: Platform.OS === "android" ? 20 : 0,
+                }}
+              >
+                {categoriesFilterMadina.map((category, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    style={[
+                      styles.chipsItem,
+                      filteredCategories === category.data
+                        ? styles.filteredCategory
+                        : null,
+                    ]}
+                    onPress={() => setFilteredCategories(category.data)}
+                  >
+                    {category.icon}
+                    <Text> {category.name}</Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
             <View style={styles.mapBox}>
               <MapView
                 style={styles.map}
@@ -55,36 +104,21 @@ const MadinahPage = ({ route, navigation }) => {
                   latitudeDelta: 0.1, // Adjust as needed
                   longitudeDelta: 0.1, // Adjust as needed
                 }}
-              ></MapView>
-              <View style={styles.overlay}>
-                <View style={styles.topSection}>
-                  <View style={styles.searchBox}>
-                    <TextInput
-                      placeholder="Search here"
-                      placeholderTextColor="#000"
-                      autoCapitalize="none"
-                      style={{ flex: 1, padding: 0 }}
-                    />
-                    <Ionicons name="ios-search" size={20} />
-                  </View>
-                  <ScrollView
-                    horizontal
-                    scrollEventThrottle={1}
-                    showsHorizontalScrollIndicator={false}
-                    height={50}
-                    style={styles.chipsScrollView}
-                    contentInset={{
-                      top: 0,
-                      left: 0,
-                      bottom: 0,
-                      right: 20,
-                    }}
-                    contentContainerStyle={{
-                      paddingRight: Platform.OS === "android" ? 20 : 0,
-                    }}
-                  ></ScrollView>
-                </View>
-              </View>
+              >
+                {filteredCategories
+                  ? filteredCategories.map((marker) => (
+                      <Marker
+                        key={marker.id}
+                        image={map_marker}
+                        coordinate={{
+                          latitude: marker.latitude,
+                          longitude: marker.longitude,
+                        }}
+                        title={marker.hotel_madina || marker.hospital_madina}
+                      />
+                    ))
+                  : null}
+              </MapView>
             </View>
           </View>
         </>
@@ -98,71 +132,5 @@ const MadinahPage = ({ route, navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f6f6f6",
-  },
-  weather: {
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-  },
-  topSection: {
-    flexDirection: "column",
-    padding: 15,
-  },
-  searchBox: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    backgroundColor: "#fff",
-  },
-  chipsScrollView: {
-    marginBottom: 10,
-  },
-  chipsItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 10,
-    marginRight: 10,
-    backgroundColor: "#fff",
-    borderRadius: 20,
-    height: 30,
-    borderWidth: 1,
-    borderColor: "#ccc",
-  },
-  mapContainer: {
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    flex: 1,
-  },
-  mapBox: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
-    overflow: "hidden",
-    flex: 1,
-  },
-  map: {
-    flex: 1,
-  },
-  legend: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-  },
-  spinnerText: {
-    color: "#3662AA",
-  },
-  overlay: {
-    position: "absolute", // Fill the entire parent
-    backgroundColor: "transparent", // Make it transparent
-  },
-});
 
 export default MadinahPage;

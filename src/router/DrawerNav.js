@@ -84,7 +84,7 @@ const DrawerMenu = ({ route, navigation }) => {
           }}
           component={MecaPage}
         ></Drawer.Screen>
-        {/* <Drawer.Screen
+        <Drawer.Screen
           name="Madinah"
           options={{
             drawerLabel: "Madinah",
@@ -94,7 +94,7 @@ const DrawerMenu = ({ route, navigation }) => {
             ),
           }}
           component={MadinahPage}
-        ></Drawer.Screen> */}
+        ></Drawer.Screen>
         <Drawer.Screen
           name="Tata Cara Haji"
           options={{
