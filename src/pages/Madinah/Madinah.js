@@ -8,10 +8,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
-import { HotelMadina, HospitalMadina } from "../../constant/coordinate";
 import { CardWeather } from "../../components/CardWeather";
 import Spinner from "react-native-loading-spinner-overlay";
-import categoriesFilter from "../../constant/chipitem";
 import { getWeather } from "./getWeatherMadina";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -57,32 +55,7 @@ const MadinahPage = ({ route, navigation }) => {
                   latitudeDelta: 0.1, // Adjust as needed
                   longitudeDelta: 0.1, // Adjust as needed
                 }}
-              >
-                {/* Draw the polygon for Mecca City */}
-                {HotelMadina.map((marker) => (
-                  <Marker
-                    key={marker.id}
-                    coordinate={{
-                      latitude: marker.latitude,
-                      longitude: marker.longitude,
-                    }}
-                    title={marker.hotel_madinah}
-                    description={marker.sektor.toString()}
-                    pinColor="blue"
-                  />
-                ))}
-                {HospitalMadina.map((marker) => (
-                  <Marker
-                    key={marker.id}
-                    coordinate={{
-                      latitude: marker.latitude,
-                      longitude: marker.longiude,
-                    }}
-                    title={marker.hospital_madinah}
-                    pinColor="red"
-                  />
-                ))}
-              </MapView>
+              ></MapView>
               <View style={styles.overlay}>
                 <View style={styles.topSection}>
                   <View style={styles.searchBox}>
@@ -109,14 +82,7 @@ const MadinahPage = ({ route, navigation }) => {
                     contentContainerStyle={{
                       paddingRight: Platform.OS === "android" ? 20 : 0,
                     }}
-                  >
-                    {categoriesFilter.map((category, index) => (
-                      <TouchableOpacity key={index} style={styles.chipsItem}>
-                        {category.icon}
-                        <Text> {category.name}</Text>
-                      </TouchableOpacity>
-                    ))}
-                  </ScrollView>
+                  ></ScrollView>
                 </View>
               </View>
             </View>
