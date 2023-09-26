@@ -995,37 +995,37 @@ export const HospitalMadina = [
   {
     hospital_madinah: "King Fahd Hospital",
     latitude: 24.495486610589406,
-    longiude: 39.56099005606697,
+    longitude: 39.56099005606697,
     id: 1,
   },
   {
     hospital_madinah: "King Salman Hospital",
     latitude: 24.607158564469785,
-    longiude: 46.641735077214214,
+    longitude: 46.641735077214214,
     id: 2,
   },
   {
     hospital_madinah: "Madina National Hospital",
     latitude: 24.446020661404265,
-    longiude: 39.642418667723966,
+    longitude: 39.642418667723966,
     id: 3,
   },
   {
     hospital_madinah: "Hayat National Hospital",
     latitude: 24.44241254200858,
-    longiude: 39.622036814954605,
+    longitude: 39.622036814954605,
     id: 4,
   },
   {
     hospital_madinah: "Al-Zahra Hospital",
     latitude: 24.455148447337194,
-    longiude: 39.62873160844311,
+    longitude: 39.62873160844311,
     id: 5,
   },
   {
     hospital_madinah: "Safa Al-Medina Hospital",
     latitude: 24.454545376738483,
-    longiude: 39.6135798097815,
+    longitude: 39.6135798097815,
     id: 6,
   },
 ];
