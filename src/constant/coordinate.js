@@ -4,6 +4,45 @@ export const meccaCity = {
   longitude: 0.0,
 };
 
+export const MoneyChangerMecca = [
+  {
+    money_changer: "Mohammed Omar Sannan for Exchange Money",
+    latitude: 21.41525358031707,
+    longitude: 39.821459055120954,
+    id: 1,
+  },
+  {
+    money_changer: "Al Minhali Currency Exchange",
+    latitude: 21.43898338361126,
+    longitude: 39.83158707643129,
+    id: 2,
+  },
+  {
+    money_changer: "Repairman Aljmiei Exchange Co.",
+    latitude: 21.433950111296358,
+    longitude: 39.82815384886847,
+    id: 3,
+  },
+  {
+    money_changer: "Abdulrahman Mohammed Bazaid Exchange Est",
+    latitude: 21.419950605317656,
+    longitude: 39.86179368229976,
+    id: 4,
+  },
+  {
+    money_changer: "Hossam Al-Harthi Exchange",
+    latitude: 21.4197279773174,
+    longitude: 39.826560661627646,
+    id: 5,
+  },
+  {
+    money_changer: "Mohammed Omar Sannan for Exchange Money",
+    latitude: 21.41517347109666,
+    longitude: 39.82123915890527,
+    id: 6,
+  },
+];
+
 export const HotelMecca = [
   {
     nama_hotel: "Arkan Bakkah",
@@ -441,6 +480,424 @@ export const HospitalMecca = [
     id: 9,
   },
 ];
+
+export const BusMecca = [
+  {
+    name_bus_station: "SAPTCO - Al Haram Station",
+    latitude: 21.43060489044307,
+    longitude: 39.81725982744027,
+    id: 1,
+  },
+  {
+    name_bus_station: "Bus stand makkah",
+    latitude: 21.422047545610678,
+    longitude: 39.83311321513462,
+    id: 2,
+  },
+  {
+    name_bus_station: "Al Ghaza Bus Station",
+    latitude: 21.4293209170428,
+    longitude: 39.82981021358349,
+    id: 3,
+  },
+  {
+    name_bus_station: "SAPTCO BUS STATION FOR HARAM",
+    latitude: 21.42597733444942,
+    longitude: 39.86147775606458,
+    id: 4,
+  },
+  {
+    name_bus_station: "Masjid al-Taneem Bus Stop / Miqat Ahl Mecca",
+    latitude: 21.429738516179228,
+    longitude: 39.81773792835403,
+    id: 5,
+  },
+  {
+    name_bus_station: "Makkah Bus Station",
+    latitude: 21.430074085695036,
+    longitude: 39.82970467743414,
+    id: 6,
+  },
+  {
+    name_bus_station: "Bus Station - Rusaifa 86",
+    latitude: 21.402230903690512,
+    longitude: 39.787600197345846,
+    id: 7,
+  },
+  {
+    name_bus_station: "Aziziya bus station 177",
+    latitude: 21.399507803616377,
+    longitude: 39.864857003672114,
+    id: 8,
+  },
+  {
+    name_bus_station: "Makkah Bus Station No. 173 in Azizia",
+    latitude: 21.41260924828998,
+    longitude: 39.85807335101943,
+    id: 9,
+  },
+  {
+    name_bus_station: "Jamarat 2nd Floor Bus Station",
+    latitude: 21.408050414991312,
+    longitude: 39.872577264113126,
+    id: 10,
+  },
+  {
+    name_bus_station: "Al Haram bus stop makkah",
+    latitude: 21.43009429450343,
+    longitude: 39.82970142949302,
+    id: 11,
+  },
+  {
+    name_bus_station: "Shaib amir bus station",
+    latitude: 21.428893171611513,
+    longitude: 39.83057145905659,
+    id: 12,
+  },
+  {
+    name_bus_station: "Saptco",
+    latitude: 21.42908609868853,
+    longitude: 39.830508410387914,
+    id: 13,
+  },
+  {
+    name_bus_station: "Bus Makarem Mena",
+    latitude: 21.417738730481563,
+    longitude: 39.83090103754377,
+    id: 14,
+  },
+  {
+    name_bus_station: "C zone bus station",
+    latitude: 21.415071277447385,
+    longitude: 39.827054656047146,
+    id: 15,
+  },
+  {
+    name_bus_station: "Meni Bus Stop",
+    latitude: 21.41251105711053,
+    longitude: 39.82806264001678,
+    id: 16,
+  },
+  {
+    name_bus_station: "Bus Stop aziziyah 452",
+    latitude: 21.394375699607696,
+    longitude: 39.86863025439338,
+    id: 17,
+  },
+  {
+    name_bus_station: "Al-Rusaifah 83 Makkah Bus Stop",
+    latitude: 21.4062081061346,
+    longitude: 39.78816103841525,
+    id: 18,
+  },
+];
+
+export const TrainMecca = [
+  {
+    mekkah_stasiun: "Makkah Station",
+    latitude: 21.42576293257662,
+    longitude: 39.788968870916996,
+    id: 1,
+  },
+  {
+    mekkah_stasiun: "Mina Train Station 1",
+    latitude: 21.40562697897067,
+    longitude: 39.89986211540586,
+    id: 2,
+  },
+  {
+    mekkah_stasiun: "Mina Station 2",
+    latitude: 21.412019645878356,
+    longitude: 39.90226537457435,
+    id: 3,
+  },
+  {
+    mekkah_stasiun: "Mina Train Station -3 Jamarat",
+    latitude: 21.42544333584683,
+    longitude: 39.87823278590627,
+    id: 4,
+  },
+  {
+    mekkah_stasiun: "Muzdalifah Train Station 2",
+    latitude: 21.391562127533234,
+    longitude: 39.923894710107575,
+    id: 5,
+  },
+  {
+    mekkah_stasiun: "Arafat Train Station 3",
+    latitude: 21.353196569345787,
+    longitude: 39.961660211326695,
+    id: 6,
+  },
+  {
+    mekkah_stasiun: "Arafat Train Station 2",
+    latitude: 21.350318746936278,
+    longitude: 39.974363155833686,
+    id: 7,
+  },
+];
+
+export const PharmacyMecca = [
+  {
+    pharmacy_name_mecca: "Nahdi Pharmacy",
+    latitude: 21.419810507243323,
+    longitude: 39.82423987318636,
+    id: 1,
+  },
+  {
+    pharmacy_name_mecca: "GHAYA Pharmacy",
+    latitude: 21.420494977306948,
+    longitude: 39.82910915920587,
+    id: 2,
+  },
+  {
+    pharmacy_name_mecca: "Ayman pharmacy",
+    latitude: 21.419269207784033,
+    longitude: 39.82465925014458,
+    id: 3,
+  },
+  {
+    pharmacy_name_mecca: "Nahdi pharmacy",
+    latitude: 21.420999192835588,
+    longitude: 39.821818474204086,
+    id: 4,
+  },
+  {
+    pharmacy_name_mecca: "United Pharmacy",
+    latitude: 21.402847345855886,
+    longitude: 39.875639482803365,
+    id: 5,
+  },
+  {
+    pharmacy_name_mecca: "Mesk Al Yaman Pharmacy",
+    latitude: 21.426726590488588,
+    longitude: 39.813583905197696,
+    id: 6,
+  },
+  {
+    pharmacy_name_mecca: "KIMIA FARMA DAWAA PHARMACY",
+    latitude: 21.43415849989818,
+    longitude: 39.829224554221426,
+    id: 7,
+  },
+  {
+    pharmacy_name_mecca: "AlTayser pharmacy",
+    latitude: 21.429561916240154,
+    longitude: 39.81437992611361,
+    id: 8,
+  },
+  {
+    pharmacy_name_mecca: "ROWAIDA Pharmacy",
+    latitude: 21.402730599949287,
+    longitude: 39.87563277727937,
+    id: 9,
+  },
+  {
+    pharmacy_name_mecca: "Al-Dawaa Pharmacy",
+    latitude: 21.36260248132235,
+    longitude: 39.88059834414371,
+    id: 10,
+  },
+  {
+    pharmacy_name_mecca: "Ghaya pharmacy",
+    latitude: 21.389779536761434,
+    longitude: 39.84524741128201,
+    id: 11,
+  },
+  {
+    pharmacy_name_mecca: "Al-Halwani Pharmacy",
+    latitude: 21.41970388474825,
+    longitude: 39.82660992942367,
+    id: 12,
+  },
+  {
+    pharmacy_name_mecca: "Ammar Pharmacy",
+    latitude: 21.44458770297992,
+    longitude: 39.86033502058713,
+    id: 13,
+  },
+  {
+    pharmacy_name_mecca: "Ibn Sina Pharmacy",
+    latitude: 21.40111937317448,
+    longitude: 39.87976633461034,
+    id: 14,
+  },
+  {
+    pharmacy_name_mecca: "Taher Pharmacy",
+    latitude: 21.413459027207804,
+    longitude: 39.863543236171004,
+    id: 15,
+  },
+  {
+    pharmacy_name_mecca: "Zahrat Al Rawdah pharmacy 112",
+    latitude: 21.420032733192244,
+    longitude: 39.82379089997586,
+    id: 16,
+  },
+  {
+    pharmacy_name_mecca: "AL-Rawdah Al-Motamyzah Pharmacy",
+    latitude: 21.402267390410262,
+    longitude: 39.81697055913979,
+    id: 17,
+  },
+  {
+    pharmacy_name_mecca: "IS'HAQ PHARMACY",
+    latitude: 21.41391123671896,
+    longitude: 39.822020229423664,
+    id: 18,
+  },
+  {
+    pharmacy_name_mecca: "Quraish Pharmacy",
+    latitude: 21.435700039832142,
+    longitude: 39.818342621489556,
+    id: 19,
+  },
+];
+
+export const MarketMecca = [
+  {
+    market_mekkah: "Carrefour market",
+    latitude: 21.420237567109147,
+    longitude: 39.82389052771363,
+    id: 1,
+  },
+  {
+    market_mekkah: "Bin Dawood",
+    latitude: 21.42031567027256,
+    longitude: 39.82513530134227,
+    id: 2,
+  },
+  {
+    market_mekkah: "Mini Supermarket mecca",
+    latitude: 21.453850736914312,
+    longitude: 39.76469421431484,
+    id: 3,
+  },
+  {
+    market_mekkah: "Mecca market",
+    latitude: 21.438632476482457,
+    longitude: 39.820645958600466,
+    id: 4,
+  },
+  {
+    market_mekkah: "Naya Grovery Store",
+    latitude: 21.414822711014146,
+    longitude: 39.821675926930666,
+    id: 5,
+  },
+];
+
+export const ATMMecca = [
+  {
+    atm_mekkah: "Riyad Bank ATM",
+    latitude: 21.41843975018437,
+    longitude: 39.82859230828563,
+    id: 1,
+  },
+  {
+    atm_mekkah: "SNB AlAhli ATM",
+    latitude: 21.420996626264838,
+    longitude: 39.82395745122945,
+    id: 2,
+  },
+  {
+    atm_mekkah: "The Saudi Investment Bank ATM",
+    latitude: 21.420756921033817,
+    longitude: 39.82567406495396,
+    id: 3,
+  },
+  {
+    atm_mekkah: "anb ATM Alsouq Alsagheer",
+    latitude: 21.421557023076403,
+    longitude: 39.82313399026453,
+    id: 4,
+  },
+];
+
+export const PoskoMecca = [
+  {
+    posko_mekkah: "Mataf",
+    latitude: 21.40617002316161,
+    longitude: 39.87195895518355,
+    id: 1,
+  },
+  {
+    posko_mekkah: "marwah",
+    latitude: 21.42524068533139,
+    longitude: 39.82996689747549,
+    id: 2,
+  },
+  {
+    posko_mekkah: "alsalam",
+    latitude: 21.42231451282455,
+    longitude: 39.828078539654335,
+    id: 3,
+  },
+  {
+    posko_mekkah: "dar_tawhid",
+    latitude: 21.421364337425377,
+    longitude: 39.82304770299208,
+    id: 4,
+  },
+  {
+    posko_mekkah: "jarwal",
+    latitude: 21.429870465190582,
+    longitude: 39.81753425065977,
+    id: 5,
+  },
+  {
+    posko_mekkah: "syib_amir",
+    latitude: 21.388135733734597,
+    longitude: 39.85909887015763,
+    id: 6,
+  },
+];
+
+export const PilgrimageMecca = [
+  {
+    situs_mekkah: "Jabal Nur",
+    latitude: 21.457737629649586,
+    longitude: 39.85786250014964,
+    id: 1,
+  },
+  {
+    situs_mekkah: "Jabal Tshur",
+    latitude: 21.390371686644134,
+    longitude: 9.848818215220376,
+    id: 2,
+  },
+  {
+    situs_mekkah: "Jabal Al Rahmah",
+    latitude: 21.5333506,
+    longitude: 39.1859448,
+    id: 3,
+  },
+  {
+    situs_mekkah: "Maqam Ibrahim",
+    latitude: 21.42285934521805,
+    longitude: 39.82696089749242,
+    id: 4,
+  },
+  {
+    situs_mekkah: "Sumur Zam-Zam",
+    latitude: 21.422738469384697,
+    longitude: 39.82712791098476,
+    id: 5,
+  },
+  {
+    situs_mekkah: "Mesjid Al-Jin",
+    latitude: 21.433605543597654,
+    longitude: 39.8293887072827,
+    id: 6,
+  },
+  {
+    situs_mekkah: "Al Muallaa ",
+    latitude: 21.43489165524144,
+    longitude: 39.82911143611851,
+    id: 7,
+  },
+];
+
 // Madina City
 export const madinaCity = {
   latitude: 0.0,

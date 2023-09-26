@@ -112,7 +112,7 @@ const LoginScreen = ({ navigation }) => {
               onPress={() => setPasswordIsVisible(!passwordIsVisible)}
             >
               <Feather
-                name={passwordIsVisible ? "eye-off" : "eye"}
+                name={passwordIsVisible ? "eye" : "eye-off"}
                 size={20}
                 color="#7C808D"
               />

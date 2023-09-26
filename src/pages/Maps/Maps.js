@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Button, Text } from "react-native";
-import MapView, { Marker, Polygon, Circle } from "react-native-maps";
+import MapView, { Marker, Polygon, Circle, PROVIDER_GOOGLE } from "react-native-maps";
 import { GetLocation } from "../../utils/getLocation";
 import MqttClient from "../../config/setupMqtt";
 import * as geolib from "geolib";
@@ -101,6 +101,7 @@ const Maps = ({ route, navigation, emailOrUsername }) => {
           longitudeDelta: 0.0421,
         }}
         legalLabelInsets={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        provider={PROVIDER_GOOGLE}
       >
         <Circle
           center={DDICircleCoordinate}
@@ -113,6 +114,7 @@ const Maps = ({ route, navigation, emailOrUsername }) => {
           coordinate={userCoordinate}
           title={emailOrUsername}
           description="This is where the user is."
+          image={require('../../../assets/map_marker.png')}
         />
       </MapView>
     </View>

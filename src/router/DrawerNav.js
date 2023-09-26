@@ -68,7 +68,6 @@ const DrawerMenu = ({ route, navigation }) => {
               <CustomDrawerIcon name="map" size={20} focused={focused} />
             ),
           }}
-          // component={Maps}
         >
           {(props) => (
             <Maps {...props} emailOrUsername={route.params.emailOrUsername} />

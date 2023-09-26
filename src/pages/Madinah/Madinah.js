@@ -1,64 +1,100 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet } from "react-native";
-import MapView, { Marker, Polygon } from "react-native-maps";
-import { useNavigation } from "@react-navigation/native";
-import { HotelMadina, HospitalMadina } from "../../constant/coordinate";
-import LegendMap from "../../components/LegendMap";
+import {
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import MapView, { Marker } from "react-native-maps";
+import { CardWeather } from "../../components/CardWeather";
+import Spinner from "react-native-loading-spinner-overlay";
+import { getWeather } from "./getWeatherMadina";
+import { Ionicons } from "@expo/vector-icons";
 
-const MadinnaCityCoordinates = [
-  // Define the coordinates for the polygon (Mecca City)
-  { latitude: 24.5247, longitude: 39.5692 },
-  { latitude: 24.5247, longitude: 39.5702 },
-  { latitude: 24.5257, longitude: 39.5702 },
-  { latitude: 24.5257, longitude: 39.5692 },
-];
+const MadinahPage = ({ route, navigation }) => {
+  const [weatherInfo, setWeatherInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-const MadinahPage = () => {
-  const navigation = useNavigation();
+  useEffect(() => {
+    setTimeout(() => {
+      getWeather()
+        .then((data) => {
+          setWeatherInfo(data);
+        })
+        .catch((error) => {
+          console.log("Error Fetching user information", error);
+        })
+        .finally(() => {
+          // Turn off the loading spinner when the data is fetched
+          setLoading(false);
+        });
+    }, 2000); // Simulate a 2-second delay for the API cal
+  }, []);
+
   return (
     <View style={styles.container}>
-      <MapView
-        style={styles.map}
-        initialRegion={{
-          latitude: 24.5247, // Center of Mecca City
-          longitude: 39.5692, // Center of Mecca City
-          latitudeDelta: 0.1, // Adjust as needed
-          longitudeDelta: 0.1, // Adjust as needed
-        }}
-        legalLabelInsets={{ top: 0, right: 0, bottom: 0, left: 0 }}
-      >
-        {/* Draw the polygon for Mecca City */}
-        <Polygon
-          coordinates={MadinnaCityCoordinates}
-          strokeWidth={2} // Adjust stroke width as needed
-          strokeColor="red" // Color of the polygon border
-          fillColor="rgba(255, 0, 0, 0.5)" // Fill color of the polygon
-        />
-        {HotelMadina.map((marker) => (
-          <Marker
-            key={marker.id}
-            coordinate={{
-              latitude: marker.latitude,
-              longitude: marker.longitude,
-            }}
-            title={marker.hotel_madinah}
-            description={marker.sektor.toString()}
-            pinColor="blue"
-          />
-        ))}
-        {HospitalMadina.map((marker) => (
-          <Marker
-            key={marker.id}
-            coordinate={{
-              latitude: marker.latitude,
-              longitude: marker.longiude,
-            }}
-            title={marker.hospital_madinah}
-            pinColor="red"
-          />
-        ))}
-      </MapView>
-      <LegendMap />
+      {weatherInfo && (
+        <>
+          <View style={styles.weather}>
+            <CardWeather weatherInfo={weatherInfo} />
+          </View>
+          <View style={styles.mapContainer}>
+            <Text
+              style={{ fontSize: 20, fontWeight: "bold", marginBottom: 10 }}
+            >
+              Lokasi Sekitar Madinah
+            </Text>
+            <View style={styles.mapBox}>
+              <MapView
+                style={styles.map}
+                initialRegion={{
+                  latitude: 24.5247, // Center of Mecca City
+                  longitude: 39.5692, // Center of Mecca City
+                  latitudeDelta: 0.1, // Adjust as needed
+                  longitudeDelta: 0.1, // Adjust as needed
+                }}
+              ></MapView>
+              <View style={styles.overlay}>
+                <View style={styles.topSection}>
+                  <View style={styles.searchBox}>
+                    <TextInput
+                      placeholder="Search here"
+                      placeholderTextColor="#000"
+                      autoCapitalize="none"
+                      style={{ flex: 1, padding: 0 }}
+                    />
+                    <Ionicons name="ios-search" size={20} />
+                  </View>
+                  <ScrollView
+                    horizontal
+                    scrollEventThrottle={1}
+                    showsHorizontalScrollIndicator={false}
+                    height={50}
+                    style={styles.chipsScrollView}
+                    contentInset={{
+                      top: 0,
+                      left: 0,
+                      bottom: 0,
+                      right: 20,
+                    }}
+                    contentContainerStyle={{
+                      paddingRight: Platform.OS === "android" ? 20 : 0,
+                    }}
+                  ></ScrollView>
+                </View>
+              </View>
+            </View>
+          </View>
+        </>
+      )}
+      <Spinner
+        visible={loading} // Set to true to display the spinner
+        textContent={"Loading..."}
+        textStyle={styles.spinnerText}
+        color="#3662AA"
+      />
     </View>
   );
 };
@@ -66,9 +102,66 @@ const MadinahPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#f6f6f6",
+  },
+  weather: {
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+  },
+  topSection: {
+    flexDirection: "column",
+    padding: 15,
+  },
+  searchBox: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    backgroundColor: "#fff",
+  },
+  chipsScrollView: {
+    marginBottom: 10,
+  },
+  chipsItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 10,
+    marginRight: 10,
+    backgroundColor: "#fff",
+    borderRadius: 20,
+    height: 30,
+    borderWidth: 1,
+    borderColor: "#ccc",
+  },
+  mapContainer: {
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    flex: 1,
+  },
+  mapBox: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 10,
+    overflow: "hidden",
+    flex: 1,
   },
   map: {
     flex: 1,
+  },
+  legend: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+  },
+  spinnerText: {
+    color: "#3662AA",
+  },
+  overlay: {
+    position: "absolute", // Fill the entire parent
+    backgroundColor: "transparent", // Make it transparent
   },
 });
 

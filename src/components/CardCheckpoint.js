@@ -17,6 +17,6 @@ export const CardCheckpoint = ({ userInfo }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#d5a6bd",
+    backgroundColor: "#45818e",
   },
 });
