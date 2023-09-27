@@ -11,6 +11,7 @@ export const CardProfile = ({
   embarcation,
   travelTour,
   hotel,
+  kota_hotel
 }) => {
   return (
     <Card style={styles.card}>
@@ -53,7 +54,7 @@ export const CardProfile = ({
           </View>
           <View style={styles.infoBox}>
             <MaterialIcons name="hotel" size={25} color="white" />
-            <Text style={styles.infoText}>Hotel: {hotel}</Text>
+            <Text style={styles.infoText}>Hotel: {hotel} ({kota_hotel})</Text>
           </View>
         </View>
       </Card.Content>

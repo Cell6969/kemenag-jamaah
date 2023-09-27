@@ -114,7 +114,17 @@ const MadinahPage = ({ route, navigation }) => {
                           latitude: marker.latitude,
                           longitude: marker.longitude,
                         }}
-                        title={marker.hotel_madina || marker.hospital_madina}
+                        title={
+                          marker.hotel_madina ||
+                          marker.hospital_madina ||
+                          marker.bus_station ||
+                          marker.pharmacy_name_madinah ||
+                          marker.madinah_stasiun_kereta ||
+                          marker.madinah_market ||
+                          marker.money_changer_madinah ||
+                          marker.madina_atm ||
+                          marker.posko_madinah
+                        }
                       />
                     ))
                   : null}

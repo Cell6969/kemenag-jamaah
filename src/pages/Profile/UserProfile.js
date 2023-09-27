@@ -46,6 +46,7 @@ const UserProfile = ({ route, navigation, emailOrUsername }) => {
             embarcation={userInfo.embarkasiName}
             travelTour={userInfo.travelName}
             hotel={userInfo.hotel}
+            kota_hotel={userInfo.kota_hotel}
           />
           <Text style={[styles.todoTitle, {marginTop: 25}]}>Kondisi Kesehatan</Text>
           <CardMedical

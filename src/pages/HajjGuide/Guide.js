@@ -4,8 +4,6 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
-  Platform,
-  UIManager,
 } from "react-native";
 import { AccordionList } from "react-native-accordion-list-view";
 import { RukunHaji } from "../../constant/tataCaraHajj";

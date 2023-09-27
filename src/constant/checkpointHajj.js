@@ -18,13 +18,13 @@ export const checkpointHajj = {
     activityPercent: 60,
   },
   4: {
-    recent: "Tahalul",
-    next: "Lempar Jumrah",
+    recent: "Lempar Jumrah",
+    next: "Tahallul",
     color: "blue",
     activityPercent: 80,
   },
   5: {
-    recent: "Lempar Jumrah",
+    recent: "Tahallul",
     next: "-",
     color: "blue",
     activityPercent: 100,
@@ -46,6 +46,6 @@ export const checkpointTimeline = [
   { step: 1, label: "Wukuf" },
   { step: 2, label: "Tawaf" },
   { step: 3, label: "Sa'i" },
-  { step: 4, label: "Tahallul" },
-  { step: 5, label: "Lempar Jumrah" },
+  { step: 4, label: "Lempar Jumrah" },
+  { step: 5, label: "Tahallul" },
 ];

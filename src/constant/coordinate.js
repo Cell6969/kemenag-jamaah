@@ -1029,3 +1029,323 @@ export const HospitalMadina = [
     id: 6,
   },
 ];
+
+export const MoneyChangerMadina = [
+  {
+    money_changer_madinah: "Salim S .D . Alluhibi & sons Money Exchanger",
+    latitude: 24.474940591606092,
+    longitude: 39.61083638374161,
+    id: 1,
+  },
+  {
+    money_changer_madinah: 'Nayef"',
+    latitude: 24.46945527,
+    longitude: 39.606405438740296,
+    id: 2,
+  },
+  {
+    money_changer_madinah: "medina",
+    latitude: 24.473751884852387,
+    longitude: 39.6137010473113,
+    id: 3,
+  },
+  {
+    money_changer_madinah: "Lafi Awad Alharbi EST for Exchange",
+    latitude: 24.472237346451966,
+    longitude: 39.609056854260245,
+    id: 4,
+  },
+  {
+    money_changer_madinah: 'صراف - Currency Exchanger"',
+    latitude: 24.46574078089119,
+    longitude: 39.607368069586485,
+    id: 5,
+  },
+  {
+    money_changer_madinah: "Waleed Salam",
+    latitude: 24.46683406525571,
+    longitude: 39.60556468465546,
+    id: 6,
+  },
+];
+
+export const BusMadina = [
+  {
+    bus_station: "SAPTCO Bus Station Madinah",
+    latitude: 24.477071320163333,
+    longitude: 39.61509802514778,
+    id: 1,
+  },
+  {
+    bus_station: "King Faisal Rd / Abdul Mushin Ibn Abdul Aziz",
+    latitude: 24.46396222851783,
+    longitude: 39.60989851494575,
+    id: 2,
+  },
+  {
+    bus_station: "Syed Shuhada Bus Station",
+    latitude: 24.47231267455266,
+    longitude: 39.611692991657236,
+    id: 3,
+  },
+  {
+    bus_station: "Madinah bus stop",
+    latitude: 24.46430560257286,
+    longitude: 39.60774012603984,
+    id: 4,
+  },
+];
+
+export const PharmacyMadina = [
+  {
+    pharmacy_name_madinah: "Nahdi Pharmacy ",
+    latitude: 24.471281030286978,
+    longtitude: 39.610241343158435,
+    id: 1,
+  },
+  {
+    pharmacy_name_madinah: "Nahdi pharmacy",
+    latitude: 24.46531342758636,
+    longtitude: 39.61039999997586,
+    id: 2,
+  },
+  {
+    pharmacy_name_madinah: "Nahdi pharmacy",
+    latitude: 24.459106907446415,
+    longtitude: 39.586385857979046,
+    id: 3,
+  },
+  {
+    pharmacy_name_madinah: "Nahdi pharmacy",
+    latitude: 24.489109217326824,
+    longtitude: 39.583705341885775,
+    id: 4,
+  },
+  {
+    pharmacy_name_madinah: "Nahdi pharmacy",
+    latitude: 24.468880124604976,
+    longtitude: 39.635042479348016,
+    id: 5,
+  },
+  {
+    pharmacy_name_madinah: "al eyadah pharmacy",
+    latitude: 24.4720688165545,
+    longtitude: 39.6130459999884,
+    id: 6,
+  },
+  {
+    pharmacy_name_madinah: "Almajd",
+    latitude: 24.478380705629604,
+    longtitude: 39.65058642943361,
+    id: 7,
+  },
+  {
+    pharmacy_name_madinah: "United Pharmacy",
+    latitude: 24.430855655972692,
+    longtitude: 39.58254866859233,
+    id: 8,
+  },
+  {
+    pharmacy_name_madinah: "United Pharmacy",
+    latitude: 24.456389397373453,
+    longtitude: 39.60853619997586,
+    id: 9,
+  },
+  {
+    pharmacy_name_madinah: "Baslam Taibah pharmacy",
+    latitude: 24.471980803012013,
+    longtitude: 39.596195901937776,
+    id: 10,
+  },
+  {
+    pharmacy_name_madinah: "ROWAIDA Pharmacy",
+    latitude: 24.52466761641231,
+    longtitude: 39.56918361861617,
+    id: 11,
+  },
+  {
+    pharmacy_name_madinah: "Ons Al Jiwar Pharmacy",
+    latitude: 24.469941750962168,
+    longtitude: 39.59840296378073,
+    id: 12,
+  },
+  {
+    pharmacy_name_madinah: "Almujtamapharma",
+    latitude: 24.48600369464565,
+    longtitude: 39.60222522943361,
+    id: 13,
+  },
+  {
+    pharmacy_name_madinah: "Wahat Al Shifa Pharmacy",
+    latitude: 24.490606227110387,
+    longtitude: 39.59496041040707,
+    id: 14,
+  },
+  {
+    pharmacy_name_madinah: "Boots",
+    latitude: 24.471550206291976,
+    longtitude: 39.61327132942366,
+    id: 15,
+  },
+  {
+    pharmacy_name_madinah: "Alzahrah Medical Pharmacy",
+    latitude: 24.534707080144738,
+    longtitude: 39.567290799985805,
+    id: 16,
+  },
+  {
+    pharmacy_name_madinah: "tryak tyba medical pharm",
+    latitude: 24.469893052307317,
+    longtitude: 39.6383841143645,
+    id: 17,
+  },
+  {
+    pharmacy_name_madinah: "Pharmacy dawn of modern",
+    latitude: 24.487271625166866,
+    longtitude: 39.586902739458885,
+    id: 18,
+  },
+  {
+    pharmacy_name_madinah: "Rokan Al-Yasmin Pharmacy",
+    latitude: 24.493101999715105,
+    longtitude: 39.61710616965233,
+    id: 19,
+  },
+  {
+    pharmacy_name_madinah: "pharmacydrugcenter",
+    latitude: 24.491300653738477,
+    longtitude: 39.56955042079791,
+    id: "",
+  },
+  {
+    pharmacy_name_madinah: "Al-Nahhas Pharmacy",
+    latitude: 24.46929557994139,
+    longtitude: 39.58263499976914,
+  },
+];
+
+export const TrainMadina = [
+  {
+    madinah_stasiun_kereta: "Madinah Station",
+    latitude: 24.479633770172516,
+    longitude: 39.69736451055852,
+    id: 1,
+  },
+  {
+    madinah_stasiun_kereta: "Al Hejaz Railway Station",
+    latitude: 24.466197230386882,
+    longitude: 39.597114270958684,
+    id: 2,
+  },
+];
+
+export const MarketMadina = [
+  {
+    madinah_market: "Ahmad Albab Dates",
+    latitude: 24.47172106654114,
+    longitude: 39.606281132226705,
+    id: 1,
+  },
+  {
+    madinah_market: "Super Market Alansar",
+    latitude: 24.46672532428697,
+    longitude: 39.60555656885457,
+    id: 2,
+  },
+  {
+    madinah_market: "Al Tawbah 24 Jam",
+    latitude: 24.472193833633625,
+    longitude: 39.60727318257908,
+    id: 3,
+  },
+  {
+    madinah_market: "Dorar Al Medina Supermarket",
+    latitude: 24.46719406296635,
+    longitude: 39.60577114557013,
+    id: 4,
+  },
+  {
+    madinah_market: "Alfaress Grocery Store",
+    latitude: 24.4806835235647,
+    longitude: 39.61148229299188,
+    id: 5,
+  },
+  {
+    madinah_market: "Al Faris SuperMarket",
+    latitude: 24.45953749062582,
+    longitude: 39.58411913759088,
+    id: 6,
+  },
+];
+
+export const ATMMadina = [
+  {
+    madina_atm: "Al-Rajhi ATM",
+    latitude: 24.472355501760838,
+    longitude: 39.60780287799978,
+    id: 1,
+  },
+  {
+    madina_atm: "The Saudi Investment Bank ATM",
+    latitude: 24.472824219478998,
+    longitude: 39.610206137214085,
+    id: 2,
+  },
+  {
+    madina_atm: "anb ATM",
+    latitude: "24.472277381971463,",
+    longitude: 39.613296041918204,
+    id: 3,
+  },
+  {
+    madina_atm: "Alinma bank ATM",
+    latitude: 24.467511983151955,
+    longitude: 39.61286688848707,
+    id: 4,
+  },
+  {
+    madina_atm: "WESTERN UNION",
+    latitude: 24.466027641762267,
+    longitude: 39.606257925647704,
+    id: 5,
+  },
+  {
+    madina_atm: "Riyad Bank ATM",
+    latitude: 24.46938691568557,
+    longitude: 39.60196639133643,
+    id: 6,
+  },
+  {
+    madina_atm: "Riyad Bank ATM Al-Jumuah",
+    latitude: 24.452511517517163,
+    longitude: 39.61432600971844,
+    id: 7,
+  },
+];
+
+export const PoskoMadina = [
+  {
+    posko_madinah: "Bani Khidrah",
+    latitude: 24.464187703123937,
+    longitude: 39.61444170396327,
+    id: 1,
+  },
+  {
+    posko_madinah: "badr gate ",
+    latitude: 24.470251997361355,
+    longitude: 39.61047203467599,
+    id: 2,
+  },
+  {
+    posko_madinah: "Haram Parking 2 Family",
+    latitude: 24.46656451955102,
+    longitude: 39.61146299814533,
+    id: 3,
+  },
+  {
+    posko_madinah: "Masjid Al Ghamamah",
+    latitude: 24.465973967962086,
+    longitude: 39.607163975269856,
+    id: 4,
+  },
+];
